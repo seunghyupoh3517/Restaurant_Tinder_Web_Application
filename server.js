@@ -5,8 +5,7 @@
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 const express = require("express");
 const app = express();
-const WebSocketServer = require('websocket').server;
-
+const WebSocket = require('ws');
 
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
@@ -23,7 +22,7 @@ const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
-const WebSocket = require('ws');
+
 
 const wss = new WebSocket.Server({
   port: 8080,
@@ -46,4 +45,11 @@ const wss = new WebSocket.Server({
     threshold: 1024 // Size (in bytes) below which messages
     // should not be compressed.
   }
+});
+
+wss.on('connection', (ws) => {
+  ws.on('message', (message) => {
+    console.log(`Received message => ${message}`)
+  })
+  ws.send('ho!')
 });
