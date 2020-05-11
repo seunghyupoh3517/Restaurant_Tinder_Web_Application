@@ -21,9 +21,3 @@ connection.onerror = error => {
 connection.onmessage = event => {
   addMessage('received ' + event.data);
 };
-
-setInterval(() => {
-  let msg = "hello";
-  addMessage("sent:" + msg)
-  connection.send(msg);
-}, 2000);
