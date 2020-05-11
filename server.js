@@ -19,15 +19,14 @@ const wss = new WebSocket.Server({server});
 
 wss.on('connection', (ws) => {
   ws.on('message', (message) => {
-    console.log(`Received message => ${message}`)
+    // console.log(message)
+    ws.send("server echo:" + message);
   })
-  ws.send('ho!')
+  ws.send('connected!')
 })
 
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + listener.address().port);
+//start our server
+server.listen(process.env.PORT, () => {
+    console.log(`Server started on port ${server.address().port} :)`);
 });
-
-
