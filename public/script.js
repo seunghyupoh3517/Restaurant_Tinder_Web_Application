@@ -1,16 +1,17 @@
 // client-side js, loaded by index.html
 // run by the browser each time the page is loaded
 
-const ws = new WebSocket('wss://glitch-websocket-chat.glitch.me:8080');
+const url = 'wss://glitch-websocket-chat.glitch.me'
+const connection = new WebSocket(url)
 
-ws.onopen = () => {
-  ws.send('hey') 
+connection.onopen = () => {
+  connection.send('hey') 
 }
 
-ws.onerror = (error) => {
+connection.onerror = (error) => {
   console.log(`WebSocket error: ${error}`)
 }
 
-ws.onmessage = (e) => {
-  console.log("received something");
+connection.onmessage = (e) => {
+  console.log(e.data)
 }
