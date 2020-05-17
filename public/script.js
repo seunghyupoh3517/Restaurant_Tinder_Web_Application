@@ -7,13 +7,14 @@ const connection = new WebSocket(url);
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
+
 function sendNewMsg() {
   let e = document.getElementById("newMsg");
-  msgObj = {
+  let msgObj = {
     "from": "host",
     "msg": e.value
   }
-  showAndSend(JSON.stringify());
+  showAndSend(JSON.stringify(msgObj));
   e.value=null;
 }
 
@@ -34,7 +35,8 @@ connection.onerror = error => {
 };
 
 connection.onmessage = event => {
-  addMessage('received ' + event.data);
+  let msg = event.data;
+  addMessage('received ' + JSON.parse(msg));
 };
 
 function showAndSend(msg) {
