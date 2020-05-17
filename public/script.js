@@ -4,6 +4,13 @@
 const url = "wss://glitch-websocket-chat.glitch.me";
 const connection = new WebSocket(url);
 
+let e = document.getElementById("newMsg");
+e.addEventListener("change", sendNewMsg);
+
+function(sendNewMsg) = {
+  
+}
+
 let addMessage = function(message) {
   const pTag = document.createElement("p");
   pTag.appendChild(document.createTextNode(message));
@@ -23,7 +30,7 @@ connection.onmessage = event => {
 };
 
 setInterval(() => {
-  let msg = "hello";
-  addMessage("sent:" + msg)
+  let msg = "hearbeat";
+  addMessage("host:" + msg)
   connection.send(msg);
-}, 2000);
+}, 4000);
