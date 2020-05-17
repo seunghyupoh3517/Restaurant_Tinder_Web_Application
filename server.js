@@ -21,7 +21,7 @@ wss.on('connection', (ws) => {
   ws.on('message', (message) => {
     // console.log(message)
     //ws.send("server echo:" + message);
-    broadcast("broadcast:" + message)
+    broadcast(message)
   })
   ws.send('connected!')
 })
