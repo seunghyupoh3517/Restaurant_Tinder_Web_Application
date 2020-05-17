@@ -8,7 +8,13 @@ let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
 function sendNewMsg() {
-  
+  let e = document.getElementById("newMsg");
+  let msgObj = {
+    "from": "host",
+    "msg": e.value
+  }
+  connection.send(JSON.stringify(msgObj));
+  e.value = null;
 }
 
 let addMessage = function(message) {
@@ -26,11 +32,14 @@ connection.onerror = error => {
 };
 
 connection.onmessage = event => {
-  addMessage('received ' + event.data);
+  //let msgObj = JSON.parse(event.data);
+  addMessage(event.data);
 };
 
+/* 
 setInterval(() => {
   let msg = "hearbeat";
   addMessage("host:" + msg)
   connection.send(msg);
 }, 4000);
+*/

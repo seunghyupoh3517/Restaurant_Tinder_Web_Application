@@ -19,5 +19,8 @@ connection.onerror = error => {
 };
 
 connection.onmessage = event => {
-  addMessage('received ' + event.data);
+  let msgObj = JSON.parse(event.data);
+  addMessage(msgObj.from +": ", msgObj.msg);
 };
+
+  
