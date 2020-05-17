@@ -4,9 +4,13 @@
 const url = "wss://glitch-websocket-chat.glitch.me";
 const connection = new WebSocket(url);
 
+let e = document.getElementById("newMsg");
+e.addEventListener("change", sendNewMsg);
+
 function sendNewMsg() {
   let e = document.getElementById("newMsg");
   let msgObj = {
+    "type": "message",
     "from": "a client",
     "msg": e.value
   }
@@ -22,7 +26,7 @@ let addMessage = function(message) {
 
 
 connection.onopen = () => {
-  connection.send(JSON.stringify({"type":"helloClient"}));
+  connection.send(JSON.stringify({"type": "helloClient"}));
 };
 
 connection.onerror = error => {
@@ -31,6 +35,7 @@ connection.onerror = error => {
 
 
 connection.onmessage = event => {
+  console.log(event.data);
   let msgObj = JSON.parse(event.data);
   if (msgObj.type == "message") {
     addMessage(msgObj.from+": "+msgObj.msg);
