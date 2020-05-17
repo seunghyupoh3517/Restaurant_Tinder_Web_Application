@@ -7,7 +7,7 @@ const connection = new WebSocket(url);
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
-function(sendNewMsg) = {
+function sendNewMsg() {
   
 }
 
