@@ -7,15 +7,18 @@ const connection = new WebSocket(url);
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
-function(sendNewMsg) = {
-  
+function sendNewMsg() {
+  let msg = document.getElementById("newMsg").value;
+  showAndSend(msg);
 }
+
 
 let addMessage = function(message) {
   const pTag = document.createElement("p");
   pTag.appendChild(document.createTextNode(message));
   document.getElementById("messages").appendChild(pTag);
 };
+
 
 connection.onopen = () => {
   connection.send("hey");
@@ -29,8 +32,13 @@ connection.onmessage = event => {
   addMessage('received ' + event.data);
 };
 
-setInterval(() => {
-  let msg = "hearbeat";
+function showAndSend(msg) {
   addMessage("host:" + msg)
   connection.send(msg);
+}
+
+/*
+setInterval(() => {
+  showAndSend("heartbeat")
 }, 4000);
+*/
