@@ -12,13 +12,14 @@ body {
 
 #fakeLink {
   font-family: serif;
+  font-size: large;
+  color: #003388;
 }
 
 input {
   border: 1px solid silver;
-  display: block;
   font-size: 16px;
   margin-bottom: 10px;
   padding: 5px;
-  flex-grow: 1;
+  width: 50em;
 }
