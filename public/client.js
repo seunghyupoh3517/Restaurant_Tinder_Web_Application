@@ -20,8 +20,9 @@ let addMessage = function(message) {
   document.getElementById("messages").appendChild(pTag);
 };
 
+
 connection.onopen = () => {
-  connection.send("hey");
+  connection.send(JSON.stringify({"type":"helloClient"}));
 };
 
 connection.onerror = error => {
@@ -31,8 +32,13 @@ connection.onerror = error => {
 
 connection.onmessage = event => {
   let msgObj = JSON.parse(event.data);
-  addMessage(msgObj.from+": "+msgObj.msg);
+  if (msgObj.type == "message") {
+    addMessage(msgObj.from+": "+msgObj.msg);
+  } else {
+    addMessage(msgObj.type);
+  }
 };
+
 
 
   

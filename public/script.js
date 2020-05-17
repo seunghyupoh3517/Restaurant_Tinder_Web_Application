@@ -10,6 +10,7 @@ e.addEventListener("change", sendNewMsg);
 function sendNewMsg() {
   let e = document.getElementById("newMsg");
   let msgObj = {
+    "type": "message",
     "from": "host",
     "msg": e.value
   }
@@ -24,7 +25,7 @@ let addMessage = function(message) {
 };
 
 connection.onopen = () => {
-  connection.send("hey");
+  connection.send(JSON.stringify({"type":"helloHost"}));
 };
 
 connection.onerror = error => {
@@ -33,7 +34,11 @@ connection.onerror = error => {
 
 connection.onmessage = event => {
   let msgObj = JSON.parse(event.data);
-  addMessage(msgObj.from+": "+msgObj.msg);
+  if (msgObj.type == "message") {
+    addMessage(msgObj.from+": "+msgObj.msg);
+  } else {
+    addMessage(msgObj.type);
+  }
 };
 
 /* 
