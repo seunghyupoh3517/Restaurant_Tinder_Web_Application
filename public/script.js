@@ -8,8 +8,13 @@ let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
 function sendNewMsg() {
-  let msg = document.getElementById("newMsg").value;
-  showAndSend(msg);
+  let e = document.getElementById("newMsg");
+  msgObj = {
+    "from": "host",
+    "msg": e.value
+  }
+  showAndSend(JSON.stringify());
+  e.value=null;
 }
 
 
