@@ -1,25 +1,20 @@
-# hello-express
+# Glitch Websocket chat app
 
-A server that serves a webpage, its resources, and some data
+An example using Websockets to allow the Server to broadcast messages to a group of clients.
 
+## Things to notice
 
-## Your Project
+"Broadcasting" here is just sending the same message to every client that is connected 
+(you can see this in server.js)
 
-On the front-end,
+There are two html files (just like our postcard app).  The user who starts the app at index.hmtl is the 
+first one to join the chat, and later ones should start at client.html. 
 
-- Edit `views/index.html` to change the content of the webpage
-- `public/client.js` is the javacript that runs when you load the webpage
-- `public/style.css` is the styles for `views/index.html`
-- Drag in `assets`, like images or music, to add them to your project
+Notice that messages are sent to the Server from the browser cod - not as HTTP requests! - by calling "connection.send"
 
-On the back-end,
+## Authors
 
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy.
-
+Mainly Michael Tianchen Sun, with a little messing about by Nina Amenta
 
 ## Made by [Glitch](https://glitch.com/)
 
