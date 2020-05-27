@@ -48,3 +48,53 @@ From Me to Everyone: (10:54 AM)
  For the tinder version, shouldn ’t we keep deleting the restaurants with the least vote and continues until we get the winnder? 
 From Omar Burney to Everyone: (10:56 AM)
  not really sure how the tinder one works tbh tournament makes more sense 
+ 
+ 
+ 
+ 
+ 
+ 1. Home Page (for the Host)
+- Start new game (button)
+-> Link to share (+random number()) / Search Control
+
+2. Search Control (for the Host)
+- two input boxes:  location, keywords
+- keywords: auto completeion
+- Get restaurants (button)
+
+3. Get restaurants
+- get 20 restaurants & info (yelp rating, number of reviews, price range, name, picture) from Yelp API
+- save it into app server database (optional) / add column for swipeCount val = 0 by default  and reset to 0 for every round (or each restaurant object + column for swipeCount)
+
+4. Player Page (for the host, players)
+- display restaurant & info in random order from the server database
+Q: What does it mean to display ‘number of times it has been chosen’ in the player page window?
+- Swiper (swipe left for Yes, swipe right for no)
+-> swipe right does nothing
+-> swipe left updates the swipeCount val for each restaurant in database
+-> at the end of every round of total five rounds unless there is absolute tie before the fifth round, check the swipe Count 
+-> 
+// Add variable conditions for the case of tie occurrences and especially, when it occurs before the fifth round
+
+if swipeCount == #players
+	if more than one restaurant
+		random pick
+	else
+		return restaurant // update Player Page with new info! Restaurant chosen
+
+If swipeCount == 0 
+	delete restaurant from the list
+
+If swipeCount == min(swipeCount in restaurants)
+	if more than one restaurant 
+	delete restaurant from the list  // run twice so that we can delete two minimum count restaurants for each round
+
+5. Restaurant chosen page
+- update the player page with the chosen restaurant (== max swipeCount, if there a few candidates, chosen randomly)
+
+
+
+
+Technical spec
+- Web socket
+- DB
