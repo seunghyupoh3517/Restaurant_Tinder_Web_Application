@@ -29,6 +29,7 @@ wss.on('connection', (ws) => {
   ws.send('connected!')
 })
 
+// clients = set of active connections, active ws from above
 function broadcast(data) {
   wss.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN) {

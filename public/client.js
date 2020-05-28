@@ -9,6 +9,7 @@ const connection = new WebSocket(url); // creating websocket connection using th
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
+// typing enter with meassage
 function sendNewMsg() {
   let e = document.getElementById("newMsg");
   let msgObj = {
@@ -35,7 +36,7 @@ connection.onerror = error => {
   console.log(`WebSocket error: ${error}`);
 };
 
-
+// define the action when the broswer receive the message from server
 connection.onmessage = event => {
   console.log(event.data);
   let msgObj = JSON.parse(event.data);
