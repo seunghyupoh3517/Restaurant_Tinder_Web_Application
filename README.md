@@ -27,10 +27,9 @@ Find out more [about Glitch](https://glitch.com/about).
 
 
 
-
-
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Doesn't have to wait for every small round - can speed to 
+
 
 Technical spec
 - express
