@@ -26,6 +26,20 @@ Find out more [about Glitch](https://glitch.com/about).
 ( ᵔ ᴥ ᵔ )
 
 
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Technical spec
+- express
+- Web socket
+- DB
+- Yelp API DB 
+- Axios
+
+
 how do clients/players get a restaurant like picture, rating, price etc ? 
 
 From database where you input the result of the return from YELP search API. , you can just send all the clients a JSON object 
@@ -74,7 +88,7 @@ if swipeCount == #players
 		random pick
 	else
 		return restaurant // update Player Page with new info! Restaurant chosen
-
+    
 If swipeCount == 0 
 	delete restaurant from the list
 
@@ -85,9 +99,3 @@ If swipeCount == min(swipeCount in restaurants)
 5. Restaurant chosen page
 - update the player page with the chosen restaurant (== max swipeCount, if there a few candidates, chosen randomly)
 
-
-
-
-Technical spec
-- Web socket
-- DB
