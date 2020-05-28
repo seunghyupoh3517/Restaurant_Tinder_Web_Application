@@ -4,7 +4,7 @@ const WebSocket = require('ws');
 
 const express = require("express");
 const app = express();
-const http = require("http"); // 
+const http = require("http"); // need base server on top of express app server
 
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
@@ -15,11 +15,12 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + "/public/index.html");
 });
 
-const server = http.createServer(app);
+const server = http.createServer(app); // express, base server
 
-const wss = new WebSocket.Server({server});
+const wss = new WebSocket.Server({server}); // websocket, implemented upon the base server
 
 wss.on('connection', (ws) => {
+  console.log("a new user connected");
   ws.on('message', (message) => {
     // console.log(message)
     //ws.send("server echo:" + message);

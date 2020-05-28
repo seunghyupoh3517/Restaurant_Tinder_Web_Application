@@ -1,9 +1,11 @@
 // client-side js, loaded by index.html
 // run by the browser each time the page is loaded
 
-const url = "wss://glitch-websocket-chat.glitch.me";
-const connection = new WebSocket(url);
+const url = "wss://tinder-websocket-final.glitch.me"; // base server url 
+const connection = new WebSocket(url); // creating websocket connection using the websocket object 
+// server already receive connection from this line
 
+// let's define action when the browser exchange the data
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
