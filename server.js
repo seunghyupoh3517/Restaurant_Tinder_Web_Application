@@ -1,8 +1,10 @@
+// socket.io / node websocket / websocket - can use any of them
+// ws: a Node.js Websocket library - npmjs.com/package/ws
 const WebSocket = require('ws');
 
 const express = require("express");
 const app = express();
-const http = require("http");
+const http = require("http"); // 
 
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
