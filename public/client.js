@@ -15,6 +15,7 @@ let progressBar = document.getElementById("progress");
 
 // ? button1, button2 event listener need to be improved (cmdObj)
 button1.addEventListener("click", () => {
+  progressBar.textContent = "Waiting...";
   let cmdObj = {
     "type": "command",
     "selection": 0
@@ -23,6 +24,7 @@ button1.addEventListener("click", () => {
 });
 
 button2.addEventListener("click", () => {
+  progressBar.textContent = "Waiting...";
   let cmdObj = {
     "type": "command",
     "selection": 1
@@ -64,7 +66,14 @@ connection.onmessage = event => {
   let msgObj = JSON.parse(event.data);
   if (msgObj.type == "message") {
     addMessage(msgObj.from+": "+msgObj.msg);
-  } else {
+  } 
+  else if (msgObj.type == 'command')
+  {
+    progressBar.textContent = "Please choose either one...";
+    button1.textContent = msgObj.info[0];
+    button2.textContent = msgObj.info[1];
+  }
+  else {
     addMessage(msgObj.type);
   }
 };

@@ -36,8 +36,26 @@ wss.on('connection', (ws) => {
   ws.on('message', (message) => {
     // console.log(message)
     //ws.send("server echo:" + message);
-    broadcast(message)
+    //broadcast(message)
+    
+    // ? - game logic need to be implemented here, how to decide the winning restaurant
+    let cmdObj = JSON.parse(message);
+    
+    if (cmdObj.type == 'command')
+    { 
+      console.log("one user selected restaurant", restaurantList[restaurantIndex][cmdObj.selection]);
+      voteCount += 1;
+      if (voteCount == clientCount)
+      {
+        // need to send new pair of restaurants
+        voteCount = 0;
+        restaurantIndex += 1;
+        let newRestaurantObj = {'type': 'command', 'info': restaurantList[restaurantIndex]}; // ? - need to check if the index reached the max
+        broadcast(JSON.stringify(newRestaurantObj));
+      }
+    }
   })
+  
   
   ws.on('close', ()=>{
     clientCount -= 1;
