@@ -49,8 +49,10 @@ wss.on('connection', (ws) => {
       {
         // need to send new pair of restaurants
         voteCount = 0;
-        restaurantIndex += 1;
-        let newRestaurantObj = {'type': 'command', 'info': restaurantList[restaurantIndex]}; // ? - need to check if the index reached the max
+        // ? - need to check if the index reached the max, need to be modified a bit, when you reach the max it doesnt go anywhere
+        if (restaurantIndex < restaurantList.length - 1)
+          restaurantIndex += 1;
+        let newRestaurantObj = {'type': 'command', 'info': restaurantList[restaurantIndex]}; 
         broadcast(JSON.stringify(newRestaurantObj));
       }
     }
