@@ -9,6 +9,28 @@ const connection = new WebSocket(url); // creating websocket connection using th
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
+let button1 = document.getElementById("btn1");
+let button2 = document.getElementById("btn2");
+let progressBar = document.getElementById("progress");
+
+// ? button1, button2 event listener need to be improved (cmdObj)
+button1.addEventListener("click", () => {
+  let cmdObj = {
+    "type": "command",
+    "selection": 0
+  }
+  connection.send(JSON.stringify(cmdObj));
+});
+
+button2.addEventListener("click", () => {
+  let cmdObj = {
+    "type": "command",
+    "selection": 1
+  }
+  connection.send(JSON.stringify(cmdObj));
+});
+
+
 // typing enter with meassage
 function sendNewMsg() {
   let e = document.getElementById("newMsg");
