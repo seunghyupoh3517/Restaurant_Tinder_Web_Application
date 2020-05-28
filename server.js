@@ -19,13 +19,31 @@ const server = http.createServer(app); // express, base server
 
 const wss = new WebSocket.Server({server}); // websocket, implemented upon the base server
 
+
+// ? Need to save the progress of the poll in our own database - currently below, saving in the memory ram
+const restaurantList = [["AAA", "BBB"], ["CCC","DDD"], ["EEE","FFF"], ["GGG","HHH"]];
+let clientCount = 0;
+let voteCount = 0;
+let restaurantIndex = 0;
+
+
 wss.on('connection', (ws) => {
-  console.log("a new user connected");
+  clientCount += 1;
+  // ? Need to be modified based on how we put restuarant list into database
+  restaurantIndex = 0; // ? as we are not restarting the server for the server
+  
+  console.log("a new user connected -- ", clientCount, " users connected");
   ws.on('message', (message) => {
     // console.log(message)
     //ws.send("server echo:" + message);
     broadcast(message)
   })
+  
+  ws.on('close', ()=>{
+    clientCount -= 1;
+    console.log("a user disconnected -- ", clientCount, " users connected");
+  });
+  
   ws.send('connected!')
 })
 
