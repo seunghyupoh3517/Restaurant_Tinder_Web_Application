@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "websocket": "^1.0.31",
-    "ws": "^7.3.0"
+    "ws": "^7.3.0",
+    "yelp-fusion": "^3.0.0"
   },
   "engines": {
     "node": "12.x"

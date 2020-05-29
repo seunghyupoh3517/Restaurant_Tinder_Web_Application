@@ -20,11 +20,10 @@
     <script src="/client.js" defer></script>
   </head>
   <body>
-    <!-------------------- code from Websocket examples
     <header>
 
     </header>
-
+    <!-------------------- code from Websocket examples
     <main>
       <p>
         Chat participant.
@@ -35,22 +34,30 @@
       <div id="messages"></div>
     </main>
     ------------------------------------------------>
-      
+    <main>
+      <!-- loading message, waiting callback from YELP -->
       <div id="progress">
-        Please choose either one...
+        Retrieving restaurants from YELP-FUSION-API...
       </div>
+      <!-- Left Restaurant (image, name, price range $, star rating, address, review button, like button) -->
+      <div id="leftRest" class ="restaurant">
+        <div>
+          
+        </div>
+        <div>
+          
+        </div>
       
-      <div>
-        <button id="btn1">
-          AAA
-        </button>
-        <button id="btn2">
-          BBB
-        </button>
-      </div>
+      </div> 
+      
+      <!-- Right Restuarant (") -->
+      <div id="rightRest" class ="restaurant">
+        
+      </div> 
+      
+    </main>
     
     <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
-
     <!-- include the Glitch button to show what the webpage is about and
           to make it easier for folks to view source and remix -->
     <div class="glitchButton" style="position:fixed;top:2em;right:20px;"></div>

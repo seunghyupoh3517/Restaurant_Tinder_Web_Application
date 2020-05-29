@@ -2,7 +2,17 @@ dependencies:
   express: 4.17.1
   websocket: 1.0.31
   ws: 7.3.0
+  yelp-fusion: 3.0.0
 packages:
+  /@tonybadguy/call-me-maybe/2.1.1:
+    dependencies:
+      caseless: 0.11.0
+      error: 7.2.1
+      small-request: 2.1.0
+      string-template: 1.0.0
+    dev: false
+    resolution:
+      integrity: sha512-Gc7G5o5Wd5I0d3ohzoZmqb1Jowr8sGURcFmGsoqiPk2ydFjwtYXRQTb4eYoJ1dZqdBlQGHRmL5mmbiMm4Kl2/w==
   /accepts/1.3.7:
     dependencies:
       mime-types: 2.1.25
@@ -39,6 +49,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==
+  /caseless/0.11.0:
+    dev: false
+    resolution:
+      integrity: sha1-cVuW6phBWTzDMGeSP17GDr2k99c=
   /content-disposition/0.5.3:
     dependencies:
       safe-buffer: 5.1.2
@@ -96,6 +110,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  /error/7.2.1:
+    dependencies:
+      string-template: 0.2.1
+    dev: false
+    resolution:
+      integrity: sha512-fo9HBvWnx3NGUKMvMwB/CBCMMrfEJgbDTVDEkPygA3Bdd3lM1OyCd+rbQ8BwnpF6GdVeOLDNmyL4N5Bg80ZvdA==
   /es5-ext/0.10.53:
     dependencies:
       es6-iterator: 2.0.3
@@ -357,6 +377,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-4Oz8DUIwdvoa5qMJelxipzi/iJIi40O5cGV1wNYp5hvZP8ZN0T+jiNkL0QepXs+EsQ9XJ8ipEDoiH70ySUJP3Q==
+  /request-function/2.0.0:
+    dependencies:
+      error: 7.2.1
+    dev: false
+    resolution:
+      integrity: sha1-J6rOJ/hx48L9SKGdrXXKOExLhlQ=
   /safe-buffer/5.1.2:
     dev: false
     resolution:
@@ -400,12 +426,26 @@ packages:
     dev: false
     resolution:
       integrity: sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw==
+  /small-request/2.1.0:
+    dependencies:
+      request-function: 2.0.0
+    dev: false
+    resolution:
+      integrity: sha512-tQlteNci7wsIsmt7KoyZj0izeuY718NBeKVhJdWxTmQHKsJp4INUhWLTJ000EzNu9p41TqbGPOrSl0wroK581Q==
   /statuses/1.5.0:
     dev: false
     engines:
       node: '>= 0.6'
     resolution:
       integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
+  /string-template/0.2.1:
+    dev: false
+    resolution:
+      integrity: sha1-QpMuWYo1LQH8IuwzZ9nYTuxsmt0=
+  /string-template/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-np8iM9wA8hhxjsN5oopWc+zKi5Y=
   /toidentifier/1.0.0:
     dev: false
     engines:
@@ -481,6 +521,12 @@ packages:
       node: '>=0.10.32'
     resolution:
       integrity: sha1-8m9ITXJoTPQr7ft2lwqhYI+/lXc=
+  /yelp-fusion/3.0.0:
+    dependencies:
+      '@tonybadguy/call-me-maybe': 2.1.1
+    dev: false
+    resolution:
+      integrity: sha512-Os4A0+v980W8sm4kurUpK4E0FMS5hvtA0//g7Jb9QI2gS7WfX/1Zw12S792LKt3YM/qJNow7XIR2g3bONlX/fg==
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
@@ -488,3 +534,4 @@ specifiers:
   express: ^4.17.1
   websocket: ^1.0.31
   ws: ^7.3.0
+  yelp-fusion: ^3.0.0
