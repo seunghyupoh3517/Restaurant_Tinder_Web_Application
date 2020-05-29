@@ -9,6 +9,7 @@ const connection = new WebSocket(url); // creating websocket connection using th
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
+// --------------------------------------------------------------
 let button1 = document.getElementById("btn1");
 let button2 = document.getElementById("btn2");
 let progressBar = document.getElementById("progress");
@@ -31,6 +32,24 @@ button2.addEventListener("click", () => {
   }
   connection.send(JSON.stringify(cmdObj));
 });
+// --------------------------------------------------------------
+let leftImg= document.getElementById("lImg");
+let rightImg= document.getElementById("rImg");
+
+let leftName= document.getElementById("lName");
+let rightName= document.getElementById("rName");
+
+let leftPrice= document.getElementById("lPrice");
+let rightPrice= document.getElementById("rPrice");
+
+let leftAddress= document.getElementById("lAddress");
+let rightAddress= document.getElementById("rAddress");
+
+let leftReviews= document.getElementById("lReview");
+let rightReviews= document.getElementById("rReview");
+
+let leftHeart= document.getElementById("lHeart");
+let rightHeart= document.getElementById("lHeart");
 
 
 // typing enter with meassage

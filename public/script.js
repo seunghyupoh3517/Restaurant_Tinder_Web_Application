@@ -33,6 +33,7 @@ connection.onerror = error => {
 };
 
 connection.onmessage = event => {
+  
   let msgObj = JSON.parse(event.data);
   if (msgObj.type == "message") {
     addMessage(msgObj.from+": "+msgObj.msg);
