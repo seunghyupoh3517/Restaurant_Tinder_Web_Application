@@ -49,7 +49,7 @@ let leftReview=document.getElementById("lReview");
 let rightReview=document.getElementById("rReview");
 
 let leftHeart=document.getElementById("lHeart");
-let rightHeart= ocument.getElementById("lHeart");
+let rightHeart=document.getElementById("rHeart");
 
 
 // typing enter with meassage
@@ -89,13 +89,47 @@ connection.onmessage = event => {
   else if (msgObj.type == 'command')
   {
     progressBar.textContent = "Please choose either one...";
-    button1.textContent = msgObj.info[0];
-    button2.textContent = msgObj.info[1];
+    //button1.textContent = msgObj.info[0];
+    //button2.textContent = msgObj.info[1];
+    let left = JSON.parse(msgObj.info[0]);
+    let right = JSON.parse(msgObj.info[1]);
+    
+    leftName.innerHTML = left.name;
+    rightName.innerHTML = right.name;
+    
+    leftPrice.innerHTML = left.price;
+    rightPrice.innerHTML = right.price;
+    
+    leftImg.style.backgroundImage = "url("+left.image_url+")";
+    rightImg.style.backgroundImage = "url("+right.image_url+")";
+    
+    leftAddress.innerHTML = left.location.address1+", "+ left.location.city+ ", "+ left.location.state+ ", "+ left.location.zip_code;
+    rightAddress.innerHTML = right.location.address1+", "+ right.location.city+ ", "+ right.location.state+ ", "+ right.location.zip_code;
+  
+    // ? directly into review window of the restaurant or main page
+    leftReview.setAttribute = ('href', left.url);
+    rightReview.setAttribute = ('href', right.url);
   }
   else {
     addMessage(msgObj.type);
   }
 };
+
+function printMsg(){
+  let input = document.getElementById("yelpSearch");
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/autocomplete");
+  xhr.setRequestHeader('Content-Type', 'text/html');
+  xhr.addEventListener("load", function() {
+    if(xhr.status == 200){
+      console.log(xhr.responseText);
+    }  else{
+      console.log("xhr.responseText);
+    }
+  });
+  
+  xhr.send('hello world');
+}
 
 
 
