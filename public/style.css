@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: opensans, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 2em 1em;
   line-height: 1.5em;
   background-color: #ff6b6b;
@@ -24,5 +26,34 @@ input {
   width: 50em;
 }
 
+#progress{}
 
-@media screen and (max-width: 525px) {}
+main{}
+
+/* (image, name, price range $, star rating, address, review button, like button) */
+.restaurant{}
+
+.image{}
+
+.name{}
+
+.price{}
+
+.star{}
+
+.address{}
+
+.bottomBlock{}
+
+.review{}
+
+.heart{}
+
+footer{}
+
+/* Desktop -> Mobile*/
+@media screen and (max-width: 525px) {
+  body{
+    
+  }
+}
