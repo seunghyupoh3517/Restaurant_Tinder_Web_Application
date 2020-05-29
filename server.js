@@ -83,7 +83,7 @@ wss.on('connection', (ws) => {
             term:'Frozen Yogurt',
             location: 'Davis, ca'
           };
-          let firstResult =0;
+          let firstResult = 0;
           let prettyJson = 0;
           client.search(searchRequest).then(response => {
             firstResult = response.jsonBody.businesses[restaurantIndex];
