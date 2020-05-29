@@ -5,6 +5,12 @@ const WebSocket = require('ws');
 const express = require("express");
 const app = express();
 const http = require("http"); // need base server on top of express app server
+const yelp = require('yelp-fusion');
+const bodyParser = require("body-parser");
+
+// Place holder for Yelp Fusion's API Key. Grab them
+// from https://www.yelp.com/developers/v3/manage_app
+const client = yelp.client(process.env.YELP_API_KEY);
 
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
@@ -22,6 +28,7 @@ const wss = new WebSocket.Server({server}); // websocket, implemented upon the b
 
 // ? Need to save the progress of the poll in our own database - currently below, saving in the memory ram
 const restaurantList = [["AAA", "BBB"], ["CCC","DDD"], ["EEE","FFF"], ["GGG","HHH"]];
+const restaurantCount = [[0,0], [0,0], [0,0], [0,0]];
 let clientCount = 0;
 let voteCount = 0;
 let restaurantIndex = 0;
@@ -33,6 +40,27 @@ wss.on('connection', (ws) => {
   restaurantIndex = 0; // ? as we are not restarting the server for the server
   
   console.log("a new user connected -- ", clientCount, " users connected");
+  
+  // ?--
+  const searchRequest = {
+    term:'Frozen Yogurt',
+    location: 'Davis, ca'
+  };
+  let firstResult =0;
+  let prettyJson = 0;
+  client.search(searchRequest).then(response => {
+    firstResult = response.jsonBody.businesses[2*restaurantIndex];
+    prettyJson = JSON.stringify(firstResult, null, 4);
+    let secondResult = response.jsonBody.businesses[2*restaurantIndex+1];
+    let prettyJson2 = JSON.stringify(secondResult, null, 4);
+    let result= [prettyJson,prettyJson2]
+    let nrObj = {'type': 'command', 'info': result}
+    broadcast(JSON.stringify(nrObj));
+  }).catch(e => {
+    console.log(e);
+  }); 
+  // ?--
+  
   ws.on('message', (message) => {
     // console.log(message)
     //ws.send("server echo:" + message);
@@ -42,19 +70,36 @@ wss.on('connection', (ws) => {
     let cmdObj = JSON.parse(message);
     
     if (cmdObj.type == 'command')
-    { 
+    {
       console.log("one user selected restaurant", restaurantList[restaurantIndex][cmdObj.selection]);
       voteCount += 1;
       if (voteCount == clientCount)
       {
-        // need to send new pair of restaurants
-        voteCount = 0;
-        // ? - need to check if the index reached the max, need to be modified a bit, when you reach the max it doesnt go anywhere
-        if (restaurantIndex < restaurantList.length - 1)
-          restaurantIndex += 1;
-        let newRestaurantObj = {'type': 'command', 'info': restaurantList[restaurantIndex]}; 
-        broadcast(JSON.stringify(newRestaurantObj));
+          console.log("next pair");
+          voteCount = 0;
+          if (restaurantIndex < restaurantList.length - 1)
+            restaurantIndex += 2;  
+          const searchRequest = {
+            term:'Frozen Yogurt',
+            location: 'Davis, ca'
+          };
+          let firstResult =0;
+          let prettyJson = 0;
+          client.search(searchRequest).then(response => {
+            firstResult = response.jsonBody.businesses[restaurantIndex];
+            prettyJson = JSON.stringify(firstResult, null, 4);
+            let secondResult = response.jsonBody.businesses[restaurantIndex+1];
+            let prettyJson2 = JSON.stringify(secondResult, null, 4);
+            let result= [prettyJson,prettyJson2]
+            let nrObj = {'type': 'command', 'info': result}
+            broadcast(JSON.stringify(nrObj));
+          }).catch(e => {
+            console.log(e);
+          });  
       }
+    }
+    else{
+      broadcast(message);
     }
   })
   

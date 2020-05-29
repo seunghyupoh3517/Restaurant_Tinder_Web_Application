@@ -42,15 +42,14 @@ let rightName=document.getElementById("rName");
 let leftPrice=document.getElementById("lPrice");
 let rightPrice=document.getElementById("rPrice");
 
+let leftStar=document.getElementById("lStar");
+let rightStar=document.getElementById("rStar");
+
 let leftAddress=document.getElementById("lAddress");
 let rightAddress=document.getElementById("rAddress");
 
 let leftReview=document.getElementById("lReview");
 let rightReview=document.getElementById("rReview");
-
-let leftHeart=document.getElementById("lHeart");
-let rightHeart=document.getElementById("rHeart");
-
 
 // typing enter with meassage
 function sendNewMsg() {
@@ -124,7 +123,7 @@ function printMsg(){
     if(xhr.status == 200){
       console.log(xhr.responseText);
     }  else{
-      console.log("xhr.responseText);
+      console.log("Not connected" + xhr.responseText);
     }
   });
   
