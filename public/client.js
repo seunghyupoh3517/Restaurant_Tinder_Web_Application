@@ -33,23 +33,23 @@ button2.addEventListener("click", () => {
   connection.send(JSON.stringify(cmdObj));
 });
 // --------------------------------------------------------------
-let leftImg= document.getElementById("lImg");
-let rightImg= document.getElementById("rImg");
+let leftImg=document.getElementById("lImg");
+let rightImg=document.getElementById("rImg");
 
-let leftName= document.getElementById("lName");
-let rightName= document.getElementById("rName");
+let leftName=document.getElementById("lName");
+let rightName=document.getElementById("rName");
 
-let leftPrice= document.getElementById("lPrice");
-let rightPrice= document.getElementById("rPrice");
+let leftPrice=document.getElementById("lPrice");
+let rightPrice=document.getElementById("rPrice");
 
-let leftAddress= document.getElementById("lAddress");
-let rightAddress= document.getElementById("rAddress");
+let leftAddress=document.getElementById("lAddress");
+let rightAddress=document.getElementById("rAddress");
 
-let leftReviews= document.getElementById("lReview");
-let rightReviews= document.getElementById("rReview");
+let leftReview=document.getElementById("lReview");
+let rightReview=document.getElementById("rReview");
 
-let leftHeart= document.getElementById("lHeart");
-let rightHeart= document.getElementById("lHeart");
+let leftHeart=document.getElementById("lHeart");
+let rightHeart= ocument.getElementById("lHeart");
 
 
 // typing enter with meassage
