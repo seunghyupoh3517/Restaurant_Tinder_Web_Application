@@ -20,10 +20,10 @@
   </head>
   <body>
     <header>
-      
+      <h2>RESTAURANT TINDER By FOODIE_SIMP</h2>
     </header>
 
-    <main>
+    <main class="shown">
       <p>
         To join this chat, go to 
         <span id="fakeLink">https://tinder-websocket-final.glitch.me/client.html</span>,
@@ -34,9 +34,26 @@
       </p>
       <div id="messages"></div>
       
+      <button id="start">
+        Start new game
+      </button>
     </main>
-
+    
+    <main class="hidden">
+      <div>
+        <a id="link" href="#"></a>
+        <div id="controlPanel">
+          <p>
+            Location: <input type="text" id="location">
+          </p>
+          <p>
+            Keyword: <input type="text" id="keyword">
+          </p>
+          <button id="getRest">Get restaurants!</button>
+        </div>
+      </div>
+    </main>
+    
     <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
-
   </body>
 </html>
