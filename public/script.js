@@ -124,10 +124,8 @@ getRest.addEventListener("click", ()=> {
 
 
 inputKeywords.addEventListener("input", ()=>{
-  let currInputText = inputKeywords.value;
   let url = "autocomplete"
 
-  
   let xhr = new XMLHttpRequest;
   xhr.open("GET",url);
   // Next, add an event listener for when the HTTP response is loaded
