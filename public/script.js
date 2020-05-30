@@ -94,8 +94,13 @@ setInterval(() => {
 }, 4000);
 */
 
-let location = ['Davis', 'New York', 'Los Angeles', 'Chicago', 'Boston'];
 
+
+// Input automation option lists
+let cities = ['Davis', 'New York', 'Los Angeles', 'Chicago', 'Boston'];
+let keywords = ['Thai', 'Japanese', 'Korean', 'American', 'Chinese', 'Mexican', 'Italian']
+
+// creates option tags for each items in the list, adds them under the datalist tags
 function addSearchOptions(list, datalist){
   list.forEach((elem) => {
     let option = document.createElement("OPTION");
@@ -104,5 +109,8 @@ function addSearchOptions(list, datalist){
   });
 }
 
-let dl = document.getElementById("location");
-addSearchOptions(location, dl);
+let locationDatalist = document.getElementById("location");
+addSearchOptions(cities, locationDatalist);
+
+let keywordDatalist = document.getElementById("keyword");
+addSearchOptions(keywords,keywordDatalist);
