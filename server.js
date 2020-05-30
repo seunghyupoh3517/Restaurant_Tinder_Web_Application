@@ -21,6 +21,18 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + "/public/index.html");
 });
 
+app.get("/autocomplete", (request, response) =>{
+  response.send("autocompleted str")
+  /*
+  client.autocomplete({
+    text: 'pizza'
+  }).then(response => {
+    console.log(response.jsonBdoy.terms[0].text);
+  }).catch(e =>{
+    console.log(e)
+  });*/
+});
+
 const server = http.createServer(app); // express, base server
 
 const wss = new WebSocket.Server({server}); // websocket, implemented upon the base server

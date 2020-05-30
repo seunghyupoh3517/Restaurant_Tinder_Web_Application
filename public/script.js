@@ -126,4 +126,19 @@ getRest.addEventListener("click", ()=> {
 
 inputLocation.addEventListener("input", ()=>{
   console.log(inputLocation.value);
+  let url = "autocomplete";
+  
+  let xhr = new XMLHttpRequest;
+  xhr.open("GET",url);
+  // Next, add an event listener for when the HTTP response is loaded
+  xhr.addEventListener("load", function() {
+      if (xhr.status == 200) {
+        console.log("success")
+        let responseStr = xhr.responseText;  // get the JSON string 
+      } else {
+        console.log(xhr.responseText);
+      }
+  });
+  // Actually send request to server
+  xhr.send();
 });
