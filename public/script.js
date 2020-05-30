@@ -94,8 +94,16 @@ setInterval(() => {
 }, 4000);
 */
 
+let location = ['Davis', 'New York', 'Los Angeles', 'Chicago', 'Boston'];
 
 
-function addSearchOptions(options){
-  let x = domcument.create
+function addSearchOptions(list){
+  let locationInput = getElementById("location");
+  
+  let option = document.createElement("DATALIST");
+  option.setAttribute("id", "")
+  locationInput.appendChild()
+  
+  
+  option.
 }
