@@ -98,11 +98,8 @@ let location = ['Davis', 'New York', 'Los Angeles', 'Chicago', 'Boston'];
 
 
 function addSearchOptions(list){
-  let locationInput = getElementById("location");
   
-  let option = document.createElement("DATALIST");
-  option.setAttribute("id", "")
-  locationInput.appendChild()
+  Input.appendChild(option)
   
   
   option.
