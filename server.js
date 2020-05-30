@@ -23,10 +23,11 @@ app.get("/", (request, response) => {
 
 let resTerm;
 app.get("/autocomplete", (req, res) =>{
-  let keyword = req.query.text;
   
-  client.categoryDetails('Restaurants').then(response => {
-    console.log(response.jsonBody.category.title);
+  client.autocomplete({
+    text: 'pizza'
+  }).then(response => {
+    console.log(response.jsonBody.terms[0].text);
   }).catch(e => {
     console.log(e);
   });
