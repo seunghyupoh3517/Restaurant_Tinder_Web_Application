@@ -116,15 +116,14 @@ let keywordDatalist = document.getElementById("keyword");
 //addSearchOptions(keywords,keywordDatalist);
 
 let inputLocation = document.getElementById("locationText");
-let inputKeywords = document.getElementById("inputKeywords");
+let inputKeywords = document.getElementById("keywordText");
 let getRest = document.getElementById("getRest");
 getRest.addEventListener("click", ()=> {
-  
-  console.log(inputLocation.text);
-  console.log(inputKeywords.text);
+  console.log(inputLocation.value);
+  console.log(inputKeywords.value);
 });
 
 
 inputLocation.addEventListener("input", ()=>{
-  console.log(this.text)
+  console.log(inputLocation.value);
 });
