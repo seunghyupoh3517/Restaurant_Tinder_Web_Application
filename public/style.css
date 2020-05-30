@@ -106,9 +106,17 @@ input {
   filter: invert(43%) sepia(50%) saturate(2453%) hue-rotate(323deg) brightness(100%) contrast(100%);
 }
 
-.start{
-  background-color: #5F9EA0;
-  
+#start{
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: #ffb3b3;
+  text-align: center;
+  padding 10px 30px;
+}
+
+#hidden{
+  display: none;
 }
 /* Host Page = index.html */
 

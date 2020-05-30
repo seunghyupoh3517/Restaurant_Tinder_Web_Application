@@ -95,6 +95,19 @@ setInterval(() => {
 */
 
 
+let startButton = document.getElementById("start");
+let searchCtrl = document.getElementById("hidden");
+startButton.addEventListener("click", () => {
+  searchCtrl.style.display = "";
+});
+
+//When the host starts the game, fetch data from Yelp Api based on the input
+let getRest = document.getElementById("getRest");
+getRest.addEventListener("click", ()=> {
+  console.log(inputLocation.value);
+  console.log(inputKeywords.value);
+});
+
 
 // Input autocomplete option lists
 let locations = [];
@@ -114,15 +127,6 @@ let keywordDatalist = document.getElementById("keyword");
 let inputLocation = document.getElementById("locationText");
 let inputKeywords = document.getElementById("keywordText");
 
-//When the host starts the game, fetch data from Yelp Api based on the input
-let getRest = document.getElementById("getRest");
-getRest.addEventListener("click", ()=> {
-  console.log(inputLocation.value);
-  console.log(inputKeywords.value);
-});
-
-
-//
 let xhr = new XMLHttpRequest;
 xhr.open("GET", "autocomplete");
 
