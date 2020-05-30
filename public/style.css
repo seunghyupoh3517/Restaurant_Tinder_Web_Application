@@ -105,6 +105,11 @@ input {
   width: 3em;
   filter: invert(43%) sepia(50%) saturate(2453%) hue-rotate(323deg) brightness(100%) contrast(100%);
 }
+
+.start{
+  background-color: #5F9EA0;
+  
+}
 /* Host Page = index.html */
 
 /* Desktop -> Mobile*/
