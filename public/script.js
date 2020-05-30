@@ -123,14 +123,10 @@ getRest.addEventListener("click", ()=> {
 });
 
 
-inputKeywords.addEventLisener("input", ()=>{
+inputKeywords.addEventListener("input", ()=>{
   let keywords = [];
   let currInputText = inputKeywords.value;
-  let url = "au
-  
-  while(keywordDatalist.hasChildNodes()){
-    keywordDatalist.removeChild(keywordDatalist.firstChild);
-  }tocomplete" + "?text=" + currInputText;
+  let url = "autocomplete" + "?text=" + currInputText;
 
   
   let xhr = new XMLHttpRequest;
