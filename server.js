@@ -7,6 +7,7 @@ const app = express();
 const http = require("http"); // need base server on top of express app server
 const yelp = require('yelp-fusion');
 const bodyParser = require("body-parser");
+const fs = require('fs');
 
 // Place holder for Yelp Fusion's API Key. Grab them
 // from https://www.yelp.com/developers/v3/manage_app
@@ -21,16 +22,28 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + "/public/index.html");
 });
 
-let resTerm;
+
+let autoObj = {
+  categories : [],
+  cities : []
+};
+
 app.get("/autocomplete", (req, res) =>{
-  /*
-  client.categoryDetails('3dprinting').then(response => {
-    resTerm = response.jsonBody.category.title
+  client.allCategories().then(response => {
+    let resObj = (response.jsonBody.categories);
+    resObj.forEach((item) => {
+      if(item.parent_aliases == 'food' || item.parent_aliases == 'restaurants'){
+        autoObj.categories.push(item.title);
+      }
+    });
   }).catch(e => {
     console.log(e);
   });
-  */
-  res.json("fixing")
+
+  let file = fs.readFileSync('cities.json');
+  let t = JSON.parse(file);
+  autoObj.cities = t.cities;
+  res.json(autoObj);
 });
 
 const server = http.createServer(app); // express, base server

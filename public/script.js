@@ -96,9 +96,9 @@ setInterval(() => {
 
 
 
-// Input automation option lists
-let cities = ['Davis', 'New York', 'Los Angeles', 'Chicago', 'Boston'];
-let keywords = ['Pizza', 'Thai', 'Korean', 'Italian'];
+// Input autocomplete option lists
+let locations = [];
+let keywords = [];
 
 // creates option tags for each items in the list, adds them under the datalist tags
 function addSearchOptions(list, datalist){
@@ -110,42 +110,32 @@ function addSearchOptions(list, datalist){
 }
 
 let locationDatalist = document.getElementById("location");
-
 let keywordDatalist = document.getElementById("keyword");
-
 let inputLocation = document.getElementById("locationText");
 let inputKeywords = document.getElementById("keywordText");
+
+//When the host starts the game, fetch data from Yelp Api based on the input
 let getRest = document.getElementById("getRest");
 getRest.addEventListener("click", ()=> {
   console.log(inputLocation.value);
   console.log(inputKeywords.value);
 });
 
-/*
+
+//
 let xhr = new XMLHttpRequest;
 xhr.open("GET", "autocomplete");
-// Next, add an event listener for when the HTTP response is loaded
+
 xhr.addEventListener("load", function() {
     if (xhr.status == 200) {
-      let responseObj = xhr.responseText; 
-      console.log(responseObj);
-      console.log(JSON.parse(responseObj))
-      let autoData = JSON.parse(responseObj);
-      autoData.forEach((obj) =>{
-        console.log("obj : " + obj.text)
-        if(!(keywords.includes(obj.text))){
-           keywords.push(obj.text);
-        }
-        console.log("keywords : " + keywords)
-      });
-
+      let responseObj = JSON.parse(xhr.responseText);
+      keywords = new Set(responseObj.categories);
+      locations = responseObj.cities;
+      addSearchOptions(keywords, keywordDatalist);
+      addSearchOptions(locations, locationDatalist);
     } else {
       console.log(xhr.responseText);
     }
 });
 // Actually send request to server
 xhr.send();
-*/
-
-addSearchOptions(cities, locationDatalist);
-addSearchOptions(keywords,keywordDatalist);
