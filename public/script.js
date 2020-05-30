@@ -1,3 +1,4 @@
+// client-side js, loaded by index.html
 // run by the browser each time the page is loaded
 
 const url = "wss://tinder-websocket-final.glitch.me";
@@ -109,10 +110,8 @@ function addSearchOptions(list, datalist){
 }
 
 let locationDatalist = document.getElementById("location");
-//addSearchOptions(cities, locationDatalist);
 
 let keywordDatalist = document.getElementById("keyword");
-//addSearchOptions(keywords,keywordDatalist);
 
 let inputLocation = document.getElementById("locationText");
 let inputKeywords = document.getElementById("keywordText");
@@ -122,33 +121,31 @@ getRest.addEventListener("click", ()=> {
   console.log(inputKeywords.value);
 });
 
+/*
+let xhr = new XMLHttpRequest;
+xhr.open("GET", "autocomplete");
+// Next, add an event listener for when the HTTP response is loaded
+xhr.addEventListener("load", function() {
+    if (xhr.status == 200) {
+      let responseObj = xhr.responseText; 
+      console.log(responseObj);
+      console.log(JSON.parse(responseObj))
+      let autoData = JSON.parse(responseObj);
+      autoData.forEach((obj) =>{
+        console.log("obj : " + obj.text)
+        if(!(keywords.includes(obj.text))){
+           keywords.push(obj.text);
+        }
+        console.log("keywords : " + keywords)
+      });
 
-inputKeywords.addEventListener("input", ()=>{
-  let url = "autocomplete"
-
-  let xhr = new XMLHttpRequest;
-  xhr.open("GET",url);
-  // Next, add an event listener for when the HTTP response is loaded
-  xhr.addEventListener("load", function() {
-      if (xhr.status == 200) {
-        let responseObj = xhr.responseText; 
-        console.log(responseObj);
-        console.log(JSON.parse(responseObj))
-        let autoData = JSON.parse(responseObj);
-        autoData.forEach((obj) =>{
-          console.log("obj : " + obj.text)
-          if(!(keywords.includes(obj.text))){
-             keywords.push(obj.text);
-          }
-          console.log("keywords : " + keywords)
-        });
-        
-      } else {
-        console.log(xhr.responseText);
-      }
-  });
-  // Actually send request to server
-  xhr.send();
-  
-  addSearchOptions(keywords,keywordDatalist);
+    } else {
+      console.log(xhr.responseText);
+    }
 });
+// Actually send request to server
+xhr.send();
+*/
+
+addSearchOptions(cities, locationDatalist);
+addSearchOptions(keywords,keywordDatalist);
