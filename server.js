@@ -23,8 +23,9 @@ app.get("/", (request, response) => {
 
 let resTerm;
 app.get("/autocomplete", (req, res) =>{
+  let keyword = req.query.text;
   client.autocomplete({
-    text: 'pizza'
+    text: keyword
   }).then(response => {
     resTerm = response.jsonBody.terms;
     res.json(resTerm);

@@ -124,9 +124,9 @@ getRest.addEventListener("click", ()=> {
 });
 
 
-inputLocation.addEventListener("input", ()=>{
-  console.log(inputLocation.value);
-  let url = "autocomplete";
+inputKeywords.addEventListener("input", ()=>{
+  let currInputText = inputKeywords.value;
+  let url = "autocomplete" + "?text=" + currInputText;
   
   let xhr = new XMLHttpRequest;
   xhr.open("GET",url);
@@ -135,6 +135,7 @@ inputLocation.addEventListener("input", ()=>{
       if (xhr.status == 200) {
         let responseStr = xhr.responseText; 
         console.log(responseStr);
+        console.log(responseStr[1])
       } else {
         console.log(xhr.responseText);
       }
