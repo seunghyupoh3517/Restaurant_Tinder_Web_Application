@@ -25,10 +25,12 @@ app.get("/autocomplete", (request, response) =>{
   client.autocomplete({
     text: 'pizza'
   }).then(response => {
-    console.log(response.jsonBody.terms);
+    console.log(response.jsonBody.terms[0].text)
+    let resTerm = response.jsonBody.terms;
   }).catch(e =>{
     console.log(e)
   });
+  response.json(resTerm);
 });
 
 const server = http.createServer(app); // express, base server
