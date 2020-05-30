@@ -109,19 +109,19 @@ function addSearchOptions(list, datalist){
   });
 }
 
-
-let inputBoxes = document.getElementsByClassName("inputBox");
-console.log("inputBoxes: ", inputBoxes )
-console.log(inputBoxes[1].children);
-inputBoxes.children.style.display = "none";
-
-inputBoxes.addEventListener("input", ()=>{
-  this.children.style.display = ""
-});
-
-
 let locationDatalist = document.getElementById("location");
 addSearchOptions(cities, locationDatalist);
 
 let keywordDatalist = document.getElementById("keyword");
 addSearchOptions(keywords,keywordDatalist);
+
+/*
+let inputBoxes = document.getElementsByClassName("inputBox");
+console.log("inputBoxes: ", inputBoxes )
+console.log(inputBoxes[1].childNodes);
+inputBoxes.children.style.display = "none";
+
+inputBoxes.addEventListener("input", ()=>{
+  this.children.style.display = ""
+});*/
+
