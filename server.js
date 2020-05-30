@@ -21,18 +21,18 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + "/public/index.html");
 });
 
-app.get("/autocomplete", (request, response) =>{
-  let resTerm;
+let resTerm;
+app.get("/autocomplete", (req, res) =>{
   client.autocomplete({
     text: 'pizza'
   }).then(response => {
     resTerm = response.jsonBody.terms;
-    console.log(resTerm)
+    res.json(resTerm);
   }).catch(e =>{
     console.log(e)
   });
 
-  response.json(resTerm);
+  console.log("term" + resTerm)
 });
 
 const server = http.createServer(app); // express, base server
