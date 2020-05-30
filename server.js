@@ -22,14 +22,16 @@ app.get("/", (request, response) => {
 });
 
 app.get("/autocomplete", (request, response) =>{
+  let resTerm;
   client.autocomplete({
     text: 'pizza'
   }).then(response => {
-    console.log(response.jsonBody.terms[0].text)
-    let resTerm = response.jsonBody.terms;
+    resTerm = response.jsonBody.terms;
+    console.log(resTerm)
   }).catch(e =>{
     console.log(e)
   });
+
   response.json(resTerm);
 });
 
