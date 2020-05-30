@@ -140,8 +140,10 @@ inputKeywords.addEventListener("input", ()=>{
         let autoData = JSON.parse(responseObj);
         autoData.forEach((obj) =>{
           console.log("obj : " + obj.text)
-          keywords.push(obj.text);
-          addSearchOptions(keywords,keywordDatalist);
+          if(!(keywords.includes(obj.text))){
+             keywords.push(obj.text);
+          }
+          console.log("keywords : " + keywords)
         });
         
       } else {
@@ -150,6 +152,6 @@ inputKeywords.addEventListener("input", ()=>{
   });
   // Actually send request to server
   xhr.send();
+  
+  addSearchOptions(keywords,keywordDatalist);
 });
-
-console.log(keywords)
