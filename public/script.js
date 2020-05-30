@@ -110,9 +110,13 @@ function addSearchOptions(list, datalist){
 }
 
 
-let inputBoxes = document.querySelectorAll("input");
+let inputBoxes = document.getElementsByClassName("inputBox");
+console.log("inputBoxes: ", inputBoxes )
+console.log(inputBoxes[1].children);
+inputBoxes.children.style.display = "none";
+
 inputBoxes.addEventListener("input", ()=>{
-  
+  this.children.style.display = ""
 });
 
 
