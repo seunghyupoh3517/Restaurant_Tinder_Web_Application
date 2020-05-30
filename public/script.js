@@ -96,7 +96,7 @@ setInterval(() => {
 
 
 let startButton = document.getElementById("start");
-let searchCtrl = document.getElementById("hidden");
+let CtrlPa = document.getElementById("hidden");
 startButton.addEventListener("click", () => {
   searchCtrl.style.display = "";
 });
