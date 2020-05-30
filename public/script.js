@@ -98,7 +98,7 @@ setInterval(() => {
 
 // Input automation option lists
 let cities = ['Davis', 'New York', 'Los Angeles', 'Chicago', 'Boston'];
-let keywords = ['Thai', 'Japanese', 'Korean', 'American', 'Chinese', 'Mexican', 'Italian']
+let keywords = [];
 
 // creates option tags for each items in the list, adds them under the datalist tags
 function addSearchOptions(list, datalist){
@@ -127,15 +127,23 @@ getRest.addEventListener("click", ()=> {
 inputKeywords.addEventListener("input", ()=>{
   let currInputText = inputKeywords.value;
   let url = "autocomplete" + "?text=" + currInputText;
+
   
   let xhr = new XMLHttpRequest;
   xhr.open("GET",url);
   // Next, add an event listener for when the HTTP response is loaded
   xhr.addEventListener("load", function() {
       if (xhr.status == 200) {
-        let responseStr = xhr.responseText; 
-        console.log(responseStr);
-        console.log(responseStr[1])
+        let responseObj = xhr.responseText; 
+        console.log(responseObj);
+        console.log(JSON.parse(responseObj))
+        let autoData = JSON.parse(responseObj);
+        autoData.forEach((obj) =>{
+          console.log("obj : " + obj.text)
+          keywords.push(obj.text);
+          addSearchOptions(keywords,keywordDatalist);
+        });
+        
       } else {
         console.log(xhr.responseText);
       }
@@ -143,3 +151,5 @@ inputKeywords.addEventListener("input", ()=>{
   // Actually send request to server
   xhr.send();
 });
+
+console.log(keywords)
