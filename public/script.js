@@ -125,3 +125,10 @@ inputBoxes.addEventListener("input", ()=>{
   this.children.style.display = ""
 });*/
 
+let inputLocation = document.getElementById("locationText");
+let inputKeywords = document.getElementById("inputKeywords");
+let getRest = document.getElementById("getRest");
+getRest.addEventListener("click", ()=> {
+  console.log(inputLocation.text);
+  console.log(inputKeywords.text);
+});
