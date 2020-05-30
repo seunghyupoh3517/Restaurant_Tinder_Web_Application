@@ -97,12 +97,12 @@ setInterval(() => {
 let location = ['Davis', 'New York', 'Los Angeles', 'Chicago', 'Boston'];
 
 function addSearchOptions(list, datalist){
-  list.forEach(
-  
-  )
-  datalist.appendChild()
+  list.forEach((elem) => {
+    let option = document.createElement("OPTION");
+    option.setAttribute("value", elem);
+    datalist.appendChild(option);
+  });
 }
 
 let dl = document.getElementById("location");
-
 addSearchOptions(location, dl);
