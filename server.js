@@ -25,7 +25,7 @@ app.get("/autocomplete", (request, response) =>{
   client.autocomplete({
     text: 'pizza'
   }).then(response => {
-    console.log(response.jsonBody.terms[0].text);
+    console.log(response.jsonBody.terms);
   }).catch(e =>{
     console.log(e)
   });
