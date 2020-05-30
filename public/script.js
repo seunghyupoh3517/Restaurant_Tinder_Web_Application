@@ -133,8 +133,8 @@ inputLocation.addEventListener("input", ()=>{
   // Next, add an event listener for when the HTTP response is loaded
   xhr.addEventListener("load", function() {
       if (xhr.status == 200) {
-        console.log("success")
-        let responseStr = xhr.responseText;  // get the JSON string 
+        let responseStr = xhr.responseText; 
+        console.log(responseStr);
       } else {
         console.log(xhr.responseText);
       }

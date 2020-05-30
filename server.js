@@ -22,15 +22,13 @@ app.get("/", (request, response) => {
 });
 
 app.get("/autocomplete", (request, response) =>{
-  response.send("autocompleted str")
-  /*
   client.autocomplete({
     text: 'pizza'
   }).then(response => {
-    console.log(response.jsonBdoy.terms[0].text);
+    console.log(response.jsonBody.terms[0].text);
   }).catch(e =>{
     console.log(e)
-  });*/
+  });
 });
 
 const server = http.createServer(app); // express, base server
