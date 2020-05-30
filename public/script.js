@@ -1,4 +1,4 @@
-// client-side js, loaded by index.html
+  let keywords = [];// client-side js, loaded by index.html
 // run by the browser each time the page is loaded
 
 const url = "wss://tinder-websocket-final.glitch.me";
@@ -98,7 +98,6 @@ setInterval(() => {
 
 // Input automation option lists
 let cities = ['Davis', 'New York', 'Los Angeles', 'Chicago', 'Boston'];
-let keywords = [];
 
 // creates option tags for each items in the list, adds them under the datalist tags
 function addSearchOptions(list, datalist){
@@ -124,9 +123,14 @@ getRest.addEventListener("click", ()=> {
 });
 
 
-inputKeywords.addEventListener("input", ()=>{
+inputKeywords.addEventLisener("input", ()=>{
+  let keywords = [];
   let currInputText = inputKeywords.value;
-  let url = "autocomplete" + "?text=" + currInputText;
+  let url = "au
+  
+  while(keywordDatalist.hasChildNodes()){
+    keywordDatalist.removeChild(keywordDatalist.firstChild);
+  }tocomplete" + "?text=" + currInputText;
 
   
   let xhr = new XMLHttpRequest;
