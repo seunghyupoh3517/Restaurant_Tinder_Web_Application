@@ -110,25 +110,21 @@ function addSearchOptions(list, datalist){
 }
 
 let locationDatalist = document.getElementById("location");
-addSearchOptions(cities, locationDatalist);
+//addSearchOptions(cities, locationDatalist);
 
 let keywordDatalist = document.getElementById("keyword");
-addSearchOptions(keywords,keywordDatalist);
-
-/*
-let inputBoxes = document.getElementsByClassName("inputBox");
-console.log("inputBoxes: ", inputBoxes )
-console.log(inputBoxes[1].childNodes);
-inputBoxes.children.style.display = "none";
-
-inputBoxes.addEventListener("input", ()=>{
-  this.children.style.display = ""
-});*/
+//addSearchOptions(keywords,keywordDatalist);
 
 let inputLocation = document.getElementById("locationText");
 let inputKeywords = document.getElementById("inputKeywords");
 let getRest = document.getElementById("getRest");
 getRest.addEventListener("click", ()=> {
+  
   console.log(inputLocation.text);
   console.log(inputKeywords.text);
+});
+
+
+inputLocation.addEventListener("input", ()=>{
+  console.log(this.text)
 });
