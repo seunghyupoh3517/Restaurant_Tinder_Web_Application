@@ -109,6 +109,13 @@ function addSearchOptions(list, datalist){
   });
 }
 
+
+let inputBoxes = document.querySelectorAll("input");
+inputBoxes.addEventListener("input", ()=>{
+  
+});
+
+
 let locationDatalist = document.getElementById("location");
 addSearchOptions(cities, locationDatalist);
 
