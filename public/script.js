@@ -93,3 +93,9 @@ setInterval(() => {
   connection.send(msg);
 }, 4000);
 */
+
+
+
+function addSearchOptions(options){
+  let x = domcument.create
+}
