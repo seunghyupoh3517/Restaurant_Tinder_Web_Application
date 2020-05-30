@@ -23,16 +23,14 @@ app.get("/", (request, response) => {
 
 let resTerm;
 app.get("/autocomplete", (req, res) =>{
-  
-  client.autocomplete({
-    text: 'pizza'
-  }).then(response => {
-    console.log(response.jsonBody.terms[0].text);
+  /*
+  client.categoryDetails('3dprinting').then(response => {
+    resTerm = response.jsonBody.category.title
   }).catch(e => {
     console.log(e);
   });
-  
-  console.log("term" + resTerm)
+  */
+  res.json("fixing")
 });
 
 const server = http.createServer(app); // express, base server
