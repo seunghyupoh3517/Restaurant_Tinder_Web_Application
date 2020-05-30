@@ -96,9 +96,9 @@ setInterval(() => {
 
 
 let startButton = document.getElementById("start");
-let CtrlPa = document.getElementById("hidden");
+let CtrlPannel = document.getElementById("hidden");
 startButton.addEventListener("click", () => {
-  searchCtrl.style.display = "";
+  CtrlPannel.style.visibility = "visible";
 });
 
 //When the host starts the game, fetch data from Yelp Api based on the input

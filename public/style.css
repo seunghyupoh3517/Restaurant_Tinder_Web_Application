@@ -116,7 +116,7 @@ input {
 }
 
 #hidden{
-  display: none;
+  visibility : hidden;
 }
 
 /* Host Page = index.html */
