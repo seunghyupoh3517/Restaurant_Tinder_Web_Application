@@ -97,7 +97,6 @@ setInterval(() => {
 
 let startButton = document.getElementById("start");
 let CtrlPannel = document.getElementsByClassName("hidden");
-console.log(CtrlPannel.style)
 startButton.addEventListener("click", () => {
   CtrlPannel[0].style.visibility = "visible";
 });
