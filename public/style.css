@@ -106,6 +106,10 @@ input {
   filter: invert(43%) sepia(50%) saturate(2453%) hue-rotate(323deg) brightness(100%) contrast(100%);
 }
 
+#startDiv{
+  text-align: center;  
+}
+
 #start{
   align-items: center;
   text-align: center;
@@ -114,8 +118,8 @@ input {
   border-radius: 5px;
   font-size: 20px;
   background-color: #ffb3b3;
-  padding 10px 30px;
-  width: 50%;
+  margin: 20px 50px;
+  width: 40%;
 }
 
 .shown{
@@ -124,6 +128,9 @@ input {
 }
 .hidden{
   visibility : hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 /* Host Page = index.html */
