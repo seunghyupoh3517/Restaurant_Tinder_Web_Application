@@ -111,6 +111,7 @@ input {
 }
 
 #start{
+  outline: none;
   align-items: center;
   text-align: center;
   color: white;
@@ -124,8 +125,9 @@ input {
 }
 
 input{
-  border: solid red;
-  border-radius: 10px;
+  outline: none;
+  border: 1.5px solid red;
+  border-radius: 5px;
 }
 
 .shown{
