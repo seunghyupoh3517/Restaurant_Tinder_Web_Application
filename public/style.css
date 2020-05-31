@@ -118,8 +118,14 @@ input {
   border-radius: 5px;
   font-size: 20px;
   background-color: #ffb3b3;
-  margin: 20px 50px;
-  width: 40%;
+  width: 30%;
+  height: 50px;
+  cursor: pointer;
+}
+
+input{
+  border: solid red;
+  border-radius: 10px;
 }
 
 .shown{
