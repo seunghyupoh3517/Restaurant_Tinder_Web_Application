@@ -107,14 +107,21 @@ input {
 }
 
 #start{
+  align-items: center;
+  text-align: center;
   color: white;
+  border: none;
   border-radius: 5px;
   font-size: 20px;
   background-color: #ffb3b3;
-  text-align: center;
   padding 10px 30px;
+  width: 50%;
 }
 
+.shown{
+  display : flex;
+  flex-direction: column;
+}
 .hidden{
   visibility : hidden;
 }
