@@ -26,6 +26,9 @@ Find out more [about Glitch](https://glitch.com/about).
 ( ᵔ ᴥ ᵔ )
 
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Amenta pointed out that the yelp API doesn't give restaurant descriptions in the search response, as such I updated the mobile views to show the address instead of a description. I thought about including hours or if the restaurant is currently open, but those both require a separate API call so I left them off. Please take a look at the new mobile views and implement that version in your projects.  
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Doesn't have to wait for every small round - can speed to 
