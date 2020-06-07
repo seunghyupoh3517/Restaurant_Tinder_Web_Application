@@ -79,7 +79,6 @@ connection.onmessage = event => {
     rightAddress.innerHTML = right.location.address1+", "+ right.location.city+ ", "+ right.location.state+ ", "+ right.location.zip_code;
   
     // ? directly into review window of the restaurant or main page
-    console.log("left url" , left.url)
     leftReview.setAttribute = ('href', left.url);
     rightReview.setAttribute = ('href', right.url);
   }
@@ -102,7 +101,9 @@ setInterval(() => {
 let startButton = document.getElementById("start");
 let CtrlPannel = document.getElementsByClassName("hidden");
 startButton.addEventListener("click", () => {
-  CtrlPannel[0].style.visibility = "visible";
+  startButton.style.display = "none";
+  CtrlPannel[0].classList.toggle("fade-in");
+  //CtrlPannel[0].style.visibility = "visible";
 });
 
 //When the host starts the game, fetch data from Yelp Api based on the input

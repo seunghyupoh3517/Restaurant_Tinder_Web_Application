@@ -141,6 +141,12 @@ input{
   text-align: center;
 }
 
+.fade-in{
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 1500ms;
+}
+
 /* Host Page = index.html */
 
 /* Desktop -> Mobile*/
