@@ -79,6 +79,7 @@ connection.onmessage = event => {
     rightAddress.innerHTML = right.location.address1+", "+ right.location.city+ ", "+ right.location.state+ ", "+ right.location.zip_code;
   
     // ? directly into review window of the restaurant or main page
+    console.log("left url" , left.url)
     leftReview.setAttribute = ('href', left.url);
     rightReview.setAttribute = ('href', right.url);
   }

@@ -110,8 +110,8 @@ connection.onmessage = event => {
     rightAddress.innerHTML = right.location.address1+", "+ right.location.city+ ", "+ right.location.state+ ", "+ right.location.zip_code;
   
     // ? directly into review window of the restaurant or main page
-    leftReview.setAttribute = ('href', left.url);
-    rightReview.setAttribute = ('href', right.url);
+    leftReview.target = left.url;
+    rightReview.target = right.url;
   }
   else {
     addMessage(msgObj.type);
