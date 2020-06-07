@@ -190,8 +190,8 @@ wss.on("connection", ws => {
       var location = cmdObj.msg[1];
       console.log("whole msg : ", cmdObj.msg);
       const searchBtn = {
-        keyword: "Pizza",
-        location: "Davis"
+        keyword: keyword,
+        location: location
       };
       // Retrieving data from YELP FUSION API
       client

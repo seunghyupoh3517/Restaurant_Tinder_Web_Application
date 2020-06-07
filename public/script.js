@@ -4,8 +4,10 @@
 const url = "wss://tinder-websocket-final.glitch.me";
 const connection = new WebSocket(url);
 
+/*
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
+*/
 
 let leftImg=document.getElementById("lImg");
 let rightImg=document.getElementById("rImg");
@@ -26,7 +28,8 @@ let leftReview=document.getElementById("lReview");
 let rightReview=document.getElementById("rReview");
 
 function sendNewMsg() {
-  let e = document.getElementById("newMsg");
+  let keyword = document.getElementById("keyword");
+  let location = c
   let msgObj = {
     "type": "message",
     "from": "host",
@@ -103,10 +106,7 @@ startButton.addEventListener("click", () => {
 
 //When the host starts the game, fetch data from Yelp Api based on the input
 let getRest = document.getElementById("getRest");
-getRest.addEventListener("click", ()=> {
-  console.log(inputLocation.value);
-  console.log(inputKeywords.value);
-});
+getRest.addEventListener("click", sendNewMsg);
 
 
 // Input autocomplete option lists
