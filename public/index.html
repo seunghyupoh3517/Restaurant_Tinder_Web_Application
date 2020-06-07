@@ -11,48 +11,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A cool thing made with Glitch">
     <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
-
+     <!-- Star from fontawesome-->
+    <script src="https://kit.fontawesome.com/5c9103433f.js" ></script>
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
-
     <!-- import the webpage's client-side javascript file -->
     <script src="/script.js" defer></script>
   </head>
+  
   <body>
-    <header>
-      <h2>RESTAURANT TINDER <br>By<br> FOODIE_SIMP</h2>
+    <header id="header">
+   <img id="logo" src="https://cdn.glitch.com/68336a22-f722-445e-8558-2835a264f470%2FTinderLogo-2017.svg?v=1591521218097">
     </header>
-
-    <main class="shown">
-      <div id="startDiv">
-        <button id="start">
-          Start new game
+    <p id="tit">
+        RESTAURANT TINDER PRESENTED BY FOODIE_SIMP_ECS162
+    </p>
+    <div id="linkDiv">
+      <div class="buttonDiv">
+        <button id="startGame">
+          Start Game!
         </button>
       </div>
+    </div>
+
+    <main id="categoryDiv" class= "hidden">
+      <p id="instruction">      
+        Send this link to other friends so that they can join the Restaurant tinder: 
+        <a id="link" href="client.html">collaboration-tinder-second.glitch.me/client.html</a>   
+        They can open the link in a new incognito window, or maybe on your phone or another computer.
+      </p>
+      
+      <div id="searchTermsDiv">
+        <p class="type">Keyword: </p>
+      
+        <input type="text" id="newMsg" placeholder="Cuisine" list="searchTerms">
+        <datalist id="searchTerms">
+          <option value="Korean"></option>
+        </datalist>
+      
+        <p class="type">
+          Location: 
+        </p>
+        <input type="text" id="newMsg2" placeholder="Davis">
+        
+      </div>
+      
+      <div class="buttonDiv">
+        <button id="submit">
+          Get restaurants!
+        </button>
+      </div>
+      <div id="messages"></div>
+      
     </main>
     
-    <main class="hidden">
-      <div>
-        <a id="link" href="#">https://tinder-websocket-final.glitch.me/client.html</a>
-        <div id="controlPanel">
-          <p>
-            Location: <input type="text" list="location" class="inputBox" id="locationText">
-            <datalist id="location"></datalist>
-          </p>
-          <p>
-            Keyword: <input type="text" list="keyword" class="inputBox" id="keywordText">
-            <datalist id="keyword"></datalist>
-          </p>
-          <button id="getRest">Get restaurants!</button>
+    <div id="round" class="hidden">
+        Round 1
+    </div>
+    <div id="progress" class="hidden">
+        Loading!!
+    </div>
+    
+    <main id="restSection" class= "restSection hidden">
+      <div id="restLeft" class="restaurant">
+        <div id="leftImg" class= "image" >
         </div>
+        
+        <h2 id= "leftName" class="name">
+           Restaurant Name
+        </h2>
+        <p id="leftPrice" class = "price">
+           Price
+        </p>
+        <!-- https://www.w3schools.com/icons/tryit.asp?filename=tryicons_fa-star-o -->
+        <div id= "leftStars" class="stars">
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p id="leftAddress" class="address">
+          Davis, CA
+        </p>
+        <a id="leftReviews" class="reviews" href="#">Reviews</a>
+        <img id="leftLike" class="heart" src="https://cdn.glitch.com/c0ab0829-65b3-4265-ab99-89cae83eb9d7%2FheartButton.svg?v=1590700512613">
       </div>
-      <div>
-        <iframe id="hostPage"/>
+      
+      <div id="restRight" class="restaurant">
+        <div id="rightImg" class= "image" >
+        </div>
+        
+        <h2 id= "rightName" class="name">
+           Restaurant Name
+        </h2>
+        <p id="rightPrice" class = "price">
+           Price
+        </p>
+        <!-- https://www.w3schools.com/icons/tryit.asp?filename=tryicons_fa-star-o -->
+        <div id= "rightStars" class="stars">
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p id="rightAddress" class="address">
+          Davis, CA
+        </p>
+        <a id="rightReviews" class="reviews" href="#">Reviews</a>
+        <img id="rightLike" class="heart" src="https://cdn.glitch.com/c0ab0829-65b3-4265-ab99-89cae83eb9d7%2FheartButton.svg?v=1590700512613">
       </div>
+    
     </main>
     
     <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
+    
   </body>
 </html>
-  
-

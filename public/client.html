@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A cool thing made with Glitch">
     <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <!-- Star from fontawesome-->
+    <script src="https://kit.fontawesome.com/5c9103433f.js" ></script>
 
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
@@ -19,10 +21,8 @@
     <!-- import the webpage's client-side javascript file -->
     <script src="/client.js" defer></script>
   </head>
+  
   <body>
-    <header>
-
-    </header>
     <!-------------------- code from Websocket examples
     <main>
       <p>
@@ -35,40 +35,68 @@
     </main>
     ------------------------------------------------>
     <!-- loading message, waiting callback from YELP -->
+    <!-- wait until to be called -->
+    <div id="round" class="hidden">
+        Round 1
+    </div>
     <div id="progress">
-      Retrieving restaurants from YELP-FUSION-API...
+        Waiting for other players...
     </div>
     
-    <main id="client">
-      
-      <!-- Left Restaurant (image, name, price range $, star rating, address, review button, like button) -->
-      <div id="leftRest" class ="restaurant">
-        <div id="lImg" class="image"></div>
-        <h2 id="lName" class="name">Restaurant Name</h2>
-        <h2 id="lPrice" class="price">Price range</h2>
-        <div id="lStar" class="star">Star rating</div>
-        <p id="lAddress" class="address">Location</p>  
-        <div class="bottomBlock">
-          <a id="lReview" class="review" href="#" target="_blank">Reviews</a>
-          <img id="lheart" class="heart" src="https://cdn.glitch.com/c0ab0829-65b3-4265-ab99-89cae83eb9d7%2FheartButton.svg?v=1590700512613">
+    <main id="restSection" class="restSection hidden">
+      <div id="restLeft" class="restaurant">
+        <div id="leftImg" class= "image" >
         </div>
-      </div> 
-      
-      <!-- Right Restuarant (") -->
-      <div id="rightRest" class ="restaurant">
-        <div id="rImg" class="image"></div>
-        <h2 id="rName" class="name">Restaurant Name</h2>
-        <h2 id="rPrice" class="price">Price range</h2>
-        <div id="rStar" class="star">Star rating</div>
-        <p id="rAddress" class="address">Location</p>  
-        <div class="bottomBlock">
-          <a id="rReview" class="review" href="#" target="_blank">Reviews</a>
-          <img id="rheart" class="heart" src="https://cdn.glitch.com/c0ab0829-65b3-4265-ab99-89cae83eb9d7%2FheartButton.svg?v=1590700512613">
+        
+        <h2 id= "leftName" class="name">
+           Restaurant Name
+        </h2>
+        <p id="leftPrice" class = "price">
+           Price
+        </p>
+         <!-- https://www.w3schools.com/icons/tryit.asp?filename=tryicons_fa-star-o -->
+        <div id= "leftStars" class="stars">
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
         </div>
-      </div> 
+        <p id="leftAddress" class="address">
+          Davis, CA
+        </p>
+        <a id="leftReviews" class="reviews"  href="#">Reviews</a>
+        <img id="leftLike" class="heart" src="https://cdn.glitch.com/c0ab0829-65b3-4265-ab99-89cae83eb9d7%2FheartButton.svg?v=1590700512613">
+      </div>
+      
+      <div id="restRight" class="restaurant">
+        <div id="rightImg" class= "image" >
+        </div>
+        
+        <h2 id= "rightName" class="name">
+           Restaurant Name
+        </h2>
+        <p id="rightPrice" class = "price">
+           Price
+        </p>
+         <!-- https://www.w3schools.com/icons/tryit.asp?filename=tryicons_fa-star-o -->
+        <div id= "rightStars" class="stars">
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p id="rightAddress" class="address">
+          Davis, CA
+        </p>
+        <a id="rightReviews" class="reviews" href="#">Reviews</a>
+        <img id="rightLike" class="heart" src="https://cdn.glitch.com/c0ab0829-65b3-4265-ab99-89cae83eb9d7%2FheartButton.svg?v=1590700512613">
+      </div>
+      
       
     </main>
-    
+  
     <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
     <!-- include the Glitch button to show what the webpage is about and
           to make it easier for folks to view source and remix -->
