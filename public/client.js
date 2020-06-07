@@ -6,10 +6,13 @@ const connection = new WebSocket(url); // creating websocket connection using th
 // server already receive connection from this line
 
 // let's define action when the browser exchange the data
+/*
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
+*/
 
 // --------------------------------------------------------------
+/*
 let button1 = document.getElementById("btn1");
 let button2 = document.getElementById("btn2");
 let progressBar = document.getElementById("progress");
@@ -32,6 +35,7 @@ button2.addEventListener("click", () => {
   }
   connection.send(JSON.stringify(cmdObj));
 });
+*/
 // --------------------------------------------------------------
 let leftImg=document.getElementById("lImg");
 let rightImg=document.getElementById("rImg");

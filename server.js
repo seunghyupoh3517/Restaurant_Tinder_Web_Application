@@ -198,7 +198,7 @@ wss.on("connection", ws => {
       client
         .search(searchBtn)
         .then(response => {
-          for (var i = 0; i < restNum; i++) {
+          for (var i = 1; i <= restNum; i++) {
             console.log(response)
             var result = response.jsonBody.business[i];
             restList[i] = JSON.stringify(result, null, 4);
