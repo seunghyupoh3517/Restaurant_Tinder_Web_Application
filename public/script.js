@@ -150,11 +150,15 @@ xhr.send();
 //generate random query string
 function generateNum(){
   let randStr = '';
-  for(let i=0; i<2; i++){
-    randStr += Math.random().toString(36).substring(2);
+  for(let i=0; i<20; i++){
+    randStr += Math.floor(Math.random()*10)
   }
   return randStr;
 }
 
 let randId = generateNum();
-console.log(randId)
+let shareUrl = url + '/client.html?id=' + randId;
+let link = document.getElementById("link");
+link.href = shareUrl;
+link.textContent = shareUrl;
+

@@ -23,6 +23,10 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + "/public/index.html");
 });
 
+app.get("/client.html", (request, response) =>{
+  response.sendFile(__direname + "/public/client.html")
+})
+
 // Location / Keyword autocomplete
 // ? Keyword autocomplete should be added
 let autoObj = {
