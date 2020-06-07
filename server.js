@@ -198,9 +198,9 @@ wss.on("connection", ws => {
       client
         .search(searchBtn)
         .then(response => {
-          for (var i = 1; i <= restNum; i++) {
-            console.log(response)
-            var result = response.jsonBody.business[i];
+          for (var i = 0; i < restNum; i++) {
+            var result = response.jsonBody.businesses[i];
+            console.log("result : ", result)
             restList[i] = JSON.stringify(result, null, 4);
           }
           var pair = randomPick();

@@ -12,11 +12,11 @@ e.addEventListener("change", sendNewMsg);
 */
 
 // --------------------------------------------------------------
-/*
+
 let button1 = document.getElementById("btn1");
 let button2 = document.getElementById("btn2");
 let progressBar = document.getElementById("progress");
-
+/*
 // ? button1, button2 event listener need to be improved (cmdObj)
 button1.addEventListener("click", () => {
   progressBar.textContent = "Waiting...";
