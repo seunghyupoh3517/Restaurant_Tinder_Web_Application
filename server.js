@@ -247,18 +247,18 @@ function broadcast(data) {
 }
 
 // autocomplete2 -> just to test, differentiate from the app.get
-app.post("/autocomplete", function(request, res){
-  let searchBtn = {text: request.body.value};
-  let result = 0;
-  client.autocomplete(searchBtn).then(response => {
-    result = response.jsonBody;
-    res.send(result);
-    res.end();
-  });
+//app.post("/autocomplete", function(request, res){
+//  let searchBtn = {text: request.body.value};
+//  let result = 0;
+//  client.autocomplete(searchBtn).then(response => {
+//    result = response.jsonBody;
+//    res.send(result);
+//    res.end();
+//  });
   //.catch(e => {
   //        console.log(e);
   //      });  
-});
+//});
 
 //start our server
 server.listen(process.env.PORT, () => {
