@@ -190,8 +190,8 @@ wss.on("connection", ws => {
       var location = cmdObj.msg[1];
       
       const searchBtn = {
-        keyword: keyword,
-        location: location
+        keyword: "pizza",
+        location: "davis"
       };
       console.log("whole msg : ", searchBtn);
       // Retrieving data from YELP FUSION API
@@ -199,6 +199,7 @@ wss.on("connection", ws => {
         .search(searchBtn)
         .then(response => {
           for (var i = 0; i < restNum; i++) {
+            console.log(response)
             var result = response.jsonBody.business[i];
             restList[i] = JSON.stringify(result, null, 4);
           }
