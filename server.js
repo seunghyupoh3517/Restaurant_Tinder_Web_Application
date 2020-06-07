@@ -188,11 +188,12 @@ wss.on("connection", ws => {
     else if (cmdObj.type == "message") {
       var keyword = cmdObj.msg[0];
       var location = cmdObj.msg[1];
-      console.log("whole msg : ", cmdObj.msg);
+      
       const searchBtn = {
         keyword: keyword,
         location: location
       };
+      console.log("whole msg : ", searchBtn);
       // Retrieving data from YELP FUSION API
       client
         .search(searchBtn)

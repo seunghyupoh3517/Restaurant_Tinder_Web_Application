@@ -28,15 +28,15 @@ let leftReview=document.getElementById("lReview");
 let rightReview=document.getElementById("rReview");
 
 function sendNewMsg() {
-  let keyword = document.getElementById("keyword");
-  let location = c
   let msgObj = {
     "type": "message",
     "from": "host",
-    "msg": e.value
+    "msg": [inputKeywords.value, inputLocation.value]
   }
+  console.log("keywords and location msg sent : ", msgObj)
   connection.send(JSON.stringify(msgObj));
-  e.value = null;
+  inputKeywords.value = null;
+  inputLocation.value = null;
 }
 
 let addMessage = function(message) {
