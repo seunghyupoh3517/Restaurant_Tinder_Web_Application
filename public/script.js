@@ -145,3 +145,16 @@ xhr.addEventListener("load", function() {
 });
 // Actually send request to server
 xhr.send();
+
+
+//generate random query string
+function generateNum(){
+  let randStr = '';
+  for(let i=0; i<2; i++){
+    randStr += Math.random().toString(36).substring(2);
+  }
+  return randStr;
+}
+
+let randId = generateNum();
+console.log(randId)
