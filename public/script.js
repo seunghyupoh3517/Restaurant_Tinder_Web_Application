@@ -103,12 +103,21 @@ let CtrlPannel = document.getElementsByClassName("hidden");
 startButton.addEventListener("click", () => {
   startButton.style.display = "none";
   CtrlPannel[0].classList.toggle("fade-in");
-  //CtrlPannel[0].style.visibility = "visible";
 });
+
+let randId = generateNum();
+let shareUrl = "https://tinder-websocket-final.glitch.me/client.html" + "?id=" + randId;
+let link = document.getElementById("link");
+link.href = shareUrl;
+link.textContent = shareUrl;
+
 
 //When the host starts the game, fetch data from Yelp Api based on the input
 let getRest = document.getElementById("getRest");
 getRest.addEventListener("click", sendNewMsg);
+getRest.addEventListener("click", () =>{
+  location.replace(shareUrl);
+});
 
 
 // Input autocomplete option lists
@@ -156,9 +165,4 @@ function generateNum(){
   return randStr;
 }
 
-let randId = generateNum();
-let shareUrl = url + '/client.html?id=' + randId;
-let link = document.getElementById("link");
-link.href = shareUrl;
-link.textContent = shareUrl;
 
