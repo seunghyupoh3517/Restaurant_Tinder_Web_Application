@@ -163,6 +163,9 @@ input{
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 1500ms;
 }
+#hostPage{
+  display: none;
+}
 
 /* Host Page = index.html */
 

@@ -114,9 +114,11 @@ link.textContent = shareUrl;
 
 //When the host starts the game, fetch data from Yelp Api based on the input
 let getRest = document.getElementById("getRest");
+let clientForHost = document.getElementById("hostPage")
+clientForHost.src = shareUrl;
 getRest.addEventListener("click", sendNewMsg);
 getRest.addEventListener("click", () =>{
-  location.replace(shareUrl);
+  clientForHost.style.display = "";
 });
 
 
