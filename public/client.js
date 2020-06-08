@@ -168,18 +168,13 @@ connection.onmessage = event => {
     console.log(lInfo.name);
     leftName.innerHTML= lInfo.name;
     rightName.innerHTML= rInfo.name;
-    if (!lInfo.price){
-      leftPrice.innerHTML = "$$";
-    }
-    else{
-      leftPrice.innerHTML = lInfo.price;
-    }
-    if (!rInfo.price){
-      rightPrice.innerHTML = "$$";
-    }
-    else{
-      rightPrice.innerHTML = rInfo.price;
-    }
+    //in case the price doesnt come up
+    if (!lInfo.price){leftPrice.innerHTML = "$$";}
+    else{leftPrice.innerHTML = lInfo.price;}
+    if (!rInfo.price){rightPrice.innerHTML = "$";}
+    else{rightPrice.innerHTML = rInfo.price;}
+    
+    // star rating -> wo fontawesome within array, couldnt call it directly from the YELP FUSION
     
     let lRating = lInfo.rating;
     let rRating = rInfo.rating;
@@ -210,9 +205,7 @@ connection.onmessage = event => {
     rightRest.classList.add("hidden");
     leftRest.classList.add("winner");
   }
-  else if (msgObj.type == 'command')
-  {
-    /*
+  /*
      progressBar.textContent = "Please choose either one...";
     //button1.textContent = msgObj.info[0];
     //button2.textContent = msgObj.info[1];
@@ -235,6 +228,9 @@ connection.onmessage = event => {
     leftReview.href = left.url;
     rightReview.href = right.url;
     */
+  else if (msgObj.type == 'command')
+  {
+    
     // display back from the hidden
     gameStatus = 1;
     round.textContent = "Round " + msgObj.round;
@@ -249,18 +245,13 @@ connection.onmessage = event => {
     console.log(lInfo.name);
     leftName.innerHTML= lInfo.name;
     rightName.innerHTML= rInfo.name;
-    if (!lInfo.price){
-      leftPrice.innerHTML = "$$";
-    }
-    else{
-      leftPrice.innerHTML = lInfo.price;
-    }
-    if (!rInfo.price){
-      rightPrice.innerHTML = "$$";
-    }
-    else{
-      rightPrice.innerHTML = rInfo.price;
-    }
+    //in case the price doesnt come up
+    if (!lInfo.price){leftPrice.innerHTML = "$$";}
+    else{leftPrice.innerHTML = lInfo.price;}
+    if (!rInfo.price){rightPrice.innerHTML = "$";}
+    else{rightPrice.innerHTML = rInfo.price;}
+    
+    // star rating -> wo fontawesome within array, couldnt call it directly from the YELP FUSION
     
     let lRating = lInfo.rating;
     let rRating = rInfo.rating;

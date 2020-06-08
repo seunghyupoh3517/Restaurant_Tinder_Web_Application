@@ -199,13 +199,12 @@ connection.onmessage = event => {
     console.log(lInfo.name);
     leftName.innerHTML= lInfo.name;
     rightName.innerHTML= rInfo.name;
+    //in case the price doesnt come up
     if (!lInfo.price){leftPrice.innerHTML = "$$";}
     else{leftPrice.innerHTML = lInfo.price;}
-    if (!rInfo.price){rightPrice.innerHTML = "$$";
-    }
-    else{
-      rightPrice.innerHTML = rInfo.price;
-    }
+    if (!rInfo.price){rightPrice.innerHTML = "$";}
+    else{rightPrice.innerHTML = rInfo.price;}
+    
     // star rating -> wo fontawesome within array, couldnt call it directly from the YELP FUSION
     let lRating = lInfo.rating;
     let rRating = rInfo.rating;
@@ -226,7 +225,7 @@ connection.onmessage = event => {
       }
     }
     // calling the direct html and retreive the data from it
-    //query statement
+    //query statement -> changing the DOM add the new elements 
     leftImg.style.backgroundImage= "url("+lInfo.image_url+")";
     rightImg.style.backgroundImage= "url("+rInfo.image_url+")";
     leftAddress.innerHTML= lInfo.location.address1+", "+lInfo.location.city+", "+lInfo.location.state+", "+lInfo.location.zip_code;
@@ -248,19 +247,11 @@ connection.onmessage = event => {
     console.log(lInfo.name);
     leftName.innerHTML= lInfo.name;
     rightName.innerHTML= rInfo.name;
-    // in case when the price value does not exist
-    if (!lInfo.price){
-      leftPrice.innerHTML = "$$";
-    }
-    else{
-      leftPrice.innerHTML = lInfo.price;
-    }
-    if (!rInfo.price){
-      rightPrice.innerHTML = "$$";
-    }
-    else{
-      rightPrice.innerHTML = rInfo.price;
-    }
+    //in case the price doesnt come up
+    if (!lInfo.price){leftPrice.innerHTML = "$$";}
+    else{leftPrice.innerHTML = lInfo.price;}
+    if (!rInfo.price){rightPrice.innerHTML = "$";}
+    else{rightPrice.innerHTML = rInfo.price;}
     
     let lRating = lInfo.rating;
     let rRating = rInfo.rating;
