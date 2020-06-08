@@ -169,6 +169,7 @@ header{
 }
 
 .heart{
+  cursor: pointer;
   position:relative;
   right: -10em;
   width: 3em;
