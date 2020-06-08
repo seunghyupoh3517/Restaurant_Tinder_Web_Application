@@ -10,7 +10,9 @@ body {
 }
 
 input {
-  border: 1px solid;
+  outline: none;
+  border-radius : 10px;
+  border: 1px solid red;
   font-size: 16px;
   padding: 5px;
   width: 75%;
@@ -23,9 +25,11 @@ input {
 }
 
 #startGame{
+  cursor: pointer;
+  border: none;
   color: white;
   background-color: #FFB6C1;
-  border-radius: 5%;
+  border-radius: 10px;
   text-align: center;
   padding: .5em;
   font-size: 1.5em;
