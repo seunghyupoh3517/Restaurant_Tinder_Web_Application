@@ -40,8 +40,8 @@ let rightAddress= document.getElementById("rightAddress");
 let leftReviews= document.getElementById("leftReviews");
 let rightReviews= document.getElementById("rightReviews");
 
-let leftStars = document.getElementById("leftStars");
-let rightStars = document.getElementById("rightStars");
+let leftStar = document.getElementById("leftStars");
+let rightStar = document.getElementById("rightStars");
 
 let leftRest =document.getElementById("restLeft");
 let rightRest =document.getElementById("restRight");
@@ -222,8 +222,8 @@ connection.onmessage = event => {
     
     let leftRating = leftInfo.rating;
     let rightRating = rightInfo.rating;
-    let leftIcons = leftStars.children;
-    let rightIcons = rightStars.children;
+    let leftIcons = leftStar.children;
+    let rightIcons = rightStar.children;
     for (let i = 0; i < leftIcons.length; i++) {
       if (i < Math.floor(leftRating)) {
         leftIcons[i].className = "fas fa-star";
@@ -277,8 +277,8 @@ connection.onmessage = event => {
     
     let leftRating = leftInfo.rating;
     let rightRating = rightInfo.rating;
-    let leftIcons = leftStars.children;
-    let rightIcons = rightStars.children;
+    let leftIcons = leftStar.children;
+    let rightIcons = rightStar.children;
     for (let i = 0; i < leftIcons.length; i++) {
       if (i < Math.floor(leftRating)) {
         leftIcons[i].className = "fas fa-star";
