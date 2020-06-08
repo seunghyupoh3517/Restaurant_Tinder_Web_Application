@@ -3,10 +3,21 @@
   box-sizing: border-box;
 }
 
+header{
+  margin-top: -10vw;
+  height: 37vw;
+}
+
 body {
   font-family: sans-serif;
   margin: 2em 1em;
   line-height: 1.5em;
+  background-color: #ff6b6b;
+}
+
+footer{
+  margin-top: 10vw;
+  text-align: center;
 }
 
 input {
@@ -52,14 +63,7 @@ input {
 #categorySection{
   text-align: center;
 }
-footer{
-  margin-top: 10vw;
-  text-align: center;
-}
 
-body{
-  background-color: #ff6b6b;
-}
 
 #tit{
   text-align: center;
@@ -68,10 +72,6 @@ body{
   color: white;
 }
 
-header{
-  margin-top: -10vw;
-  height: 37vw;
-}
 
 #link{
   text-decoration: none;
@@ -101,20 +101,6 @@ header{
   margin-bottom: 0.5em;
 }
 
-#round{
-  text-align: center;
-  font-size: 2em;
-  color: white;
-  padding: 1em;
-  margin-bottom: -1em;
-}
-
-#progress{
-  text-align: center;
-  font-size: 1.7em;
-  color: white;
-  padding: 1em;
-}
 /* (image, name, price range $, star rating, address, review button, like button) */
 .restSection{
   display:flex;
@@ -179,39 +165,51 @@ header{
   position:relative;
   right: -10em;
   width: 3em;
-  filter: invert(43%) sepia(50%) saturate(2453%) hue-rotate(323deg) brightness(100%) contrast(100%);
+  filter: invert(43%) sepia(50%) saturate(3000%) hue-rotate(320deg) brightness(150%) contrast(120%);
 }
 
 
 .hidden{
-  opacity: 0;
-  transition: opacity 1500ms;
   display: none;
 }
 
-#categoryDiv{
-  display: '';
+.fadeIn{
   opacity: 1;
+}
+
+#categoryDiv{
   text-align: center;
+}
+
+#round{
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  padding: 1em;
+  margin-bottom: -1em;
+}
+
+#progress{
+  text-align: center;
+  font-size: 1.7em;
+  color: white;
+  padding: 1em;
 }
 
 /* Host Page = index.html */
 
 /* Desktop -> Mobile*/
 @media screen and (max-width: 525px) {
-  #logo {
-    top: 18vw;
-  }
   header{
-  
-  height: 20vw;
+    height: 20vw;
   }
-  
-  .type {
-    font-size: 1em;
+  /*
+  body{
+    display: flex;
+    flex-direction: column-reverse;
   }
-  
-  #submit {
-    font-size: 1.2em;
+  */
+  #logo {
+    top: 5em;
   }
 }

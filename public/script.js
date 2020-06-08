@@ -61,6 +61,8 @@ function startNewGame(){
   header.classList.add("hidden");
   linkDiv.classList.add("hidden");
   categoryDiv.classList.remove("hidden");
+  categoryDiv.classList.add("fadeIn");
+  
 }
 
 function sendNewMsg() {
