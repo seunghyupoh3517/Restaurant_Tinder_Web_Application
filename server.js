@@ -51,7 +51,8 @@ let autoObj = {
 app.get("/cities", function(req, res){
   let file = fs.readFileSync('cities.json');
   let t = JSON.parse(file);
-  res.json(file);
+  console.log("file" , t)
+  res.json(t);
 })
 
 // autocomplete2 -> just to test, differentiate from the app.get

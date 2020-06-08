@@ -116,9 +116,13 @@ e2_xhr.addEventListener("load", function() {
       let loc = document.getElementById("locationTerm");
       let opt = '';
       let responseObj = JSON.parse(e2_xhr.responseText);
+      console.log("opt : ", opt)
+      console.log("responseObj : ", responseObj);
       for (var i=0; i < responseObj.cities.length;i++){
-        opt += '<option value="'+responseObj.cities[i].title+'" />'; 
+        opt += '<option value="'+responseObj.cities[i]+'" />'; 
       }
+
+      loc.innerHTML = opt;
     } else {
       console.log(e2_xhr.responseText);
     }
@@ -337,3 +341,4 @@ function sendNewMsg() {
   round.classList.remove("hidden");
   categoryDiv.classList.add("hidden");
 }
+
