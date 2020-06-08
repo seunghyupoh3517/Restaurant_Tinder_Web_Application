@@ -162,27 +162,27 @@ connection.onmessage = event => {
     gameStatus = 0;
     round.classList.add("hidden");
     progressBar.textContent = "Winner! Let's go to: ";
-    let leftInfo = JSON.parse(msgObj.winner);
-    let rightInfo = JSON.parse(msgObj.winner);
-    console.log(leftInfo);
-    console.log(leftInfo.name);
-    leftName.innerHTML= leftInfo.name;
-    rightName.innerHTML= rightInfo.name;
-    if (!leftInfo.price){
-      leftPrice.innerHTML = "?";
+    let lInfo = JSON.parse(msgObj.winner);
+    let rInfo = JSON.parse(msgObj.winner);
+    console.log(lInfo);
+    console.log(lInfo.name);
+    leftName.innerHTML= lInfo.name;
+    rightName.innerHTML= rInfo.name;
+    if (!lInfo.price){
+      leftPrice.innerHTML = "$$";
     }
     else{
-      leftPrice.innerHTML = leftInfo.price;
+      leftPrice.innerHTML = lInfo.price;
     }
-    if (!rightInfo.price){
-      rightPrice.innerHTML = "?";
+    if (!rInfo.price){
+      rightPrice.innerHTML = "$$";
     }
     else{
-      rightPrice.innerHTML = rightInfo.price;
+      rightPrice.innerHTML = rInfo.price;
     }
     
-    let lRating = leftInfo.rating;
-    let rRating = rightInfo.rating;
+    let lRating = lInfo.rating;
+    let rRating = rInfo.rating;
     let lIcons = leftStar.children;
     let rIcons = rightStar.children;
     for (let i = 0; i < lIcons.length; i++) {
@@ -201,12 +201,12 @@ connection.onmessage = event => {
     }
   
     //query statement
-    leftImg.style.backgroundImage= "url("+leftInfo.image_url+")";
-    rightImg.style.backgroundImage= "url("+rightInfo.image_url+")";
-    leftAddress.innerHTML= leftInfo.location.address1+", "+leftInfo.location.city+", "+leftInfo.location.state+", "+leftInfo.location.zip_code;
-    rightAddress.innerHTML= rightInfo.location.address1+", "+rightInfo.location.city+", "+rightInfo.location.state+", "+rightInfo.location.zip_code;
-    leftReviews.setAttribute('href', leftInfo.url);
-    rightReviews.setAttribute('href', rightInfo.url);
+    leftImg.style.backgroundImage= "url("+lInfo.image_url+")";
+    rightImg.style.backgroundImage= "url("+rInfo.image_url+")";
+    leftAddress.innerHTML= lInfo.location.address1+", "+lInfo.location.city+", "+lInfo.location.state+", "+lInfo.location.zip_code;
+    rightAddress.innerHTML= rInfo.location.address1+", "+rInfo.location.city+", "+rInfo.location.state+", "+rInfo.location.zip_code;
+    leftReviews.setAttribute('href', lInfo.url);
+    rightReviews.setAttribute('href', rInfo.url);
     rightRest.classList.add("hidden");
     leftRest.classList.add("winner");
   }
@@ -250,13 +250,13 @@ connection.onmessage = event => {
     leftName.innerHTML= lInfo.name;
     rightName.innerHTML= rInfo.name;
     if (!lInfo.price){
-      leftPrice.innerHTML = "?";
+      leftPrice.innerHTML = "$$";
     }
     else{
       leftPrice.innerHTML = lInfo.price;
     }
     if (!rInfo.price){
-      rightPrice.innerHTML = "?";
+      rightPrice.innerHTML = "$$";
     }
     else{
       rightPrice.innerHTML = rInfo.price;

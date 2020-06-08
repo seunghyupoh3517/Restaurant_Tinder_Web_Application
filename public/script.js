@@ -72,21 +72,19 @@ function sendNewMsg() {
     "from": "host",
     "msg": msg
   }
+  
   connection.send(JSON.stringify(msgObj));
   e.value = null;
   e2.value=null;
-  
   progressBar.classList.remove("hidden");
   restSection.classList.remove("hidden");
   round.classList.remove("hidden");
   categoryDiv.classList.add("hidden");
 }
 
-
 e.addEventListener("input",() => {
   console.log("change");
   console.log(e.value);
-  
   // store it in a FormData object
   const formData = new FormData();
   // name of field, the file itself, and its name
@@ -102,29 +100,22 @@ e.addEventListener("input",() => {
   xhr.setRequestHeader("Content-Type", "application/json; chaset=UTF-8");
   // callback function executed when the HTTP response comes back
   xhr.onloadend = function(event) {    
-    let ourData = JSON.parse(xhr.responseText);
-    
+    let ourData = JSON.parse(xhr.responseText);   
     // now that the image is on the server, we can display it!
     let searchTerms= document.getElementById("searchTerms");
-    
-    var str=''; // variable to store the options
-    
+    var str=''; // variable to store the options    
     for (var i=0; i < ourData.categories.length;i++){
       str += '<option value="'+ourData.categories[i].title+'" />'; 
     }
-
     for (var i=0; i < ourData.terms.length;i++){
       str += '<option value="'+ourData.terms[i].text+'" />'; 
     }
     console.log(str);
     searchTerms.innerHTML = str;
-      
   }
   // actually send the request
-  xhr.send(data);
-  
+  xhr.send(data); 
 });
-
 
 //autocomplete for Location input
 const e2_xhr = new XMLHttpRequest();
@@ -202,27 +193,22 @@ connection.onmessage = event => {
     gameStatus = 0;
     round.classList.add("hidden");
     progressBar.textContent = "Winner! Let's go to: ";
-    let leftInfo = JSON.parse(msgObj.winner);
-    let rightInfo = JSON.parse(msgObj.winner);
-    console.log(leftInfo);
-    console.log(leftInfo.name);
-    leftName.innerHTML= leftInfo.name;
-    rightName.innerHTML= rightInfo.name;
-    if (!leftInfo.price){
-      leftPrice.innerHTML = "?";
+    let lInfo = JSON.parse(msgObj.winner);
+    let rInfo = JSON.parse(msgObj.winner);
+    console.log(lInfo);
+    console.log(lInfo.name);
+    leftName.innerHTML= lInfo.name;
+    rightName.innerHTML= rInfo.name;
+    if (!lInfo.price){leftPrice.innerHTML = "$$";}
+    else{leftPrice.innerHTML = lInfo.price;}
+    if (!rInfo.price){rightPrice.innerHTML = "$$";
     }
     else{
-      leftPrice.innerHTML = leftInfo.price;
-    }
-    if (!rightInfo.price){
-      rightPrice.innerHTML = "?";
-    }
-    else{
-      rightPrice.innerHTML = rightInfo.price;
+      rightPrice.innerHTML = rInfo.price;
     }
     // star rating -> wo fontawesome within array, couldnt call it directly from the YELP FUSION
-    let lRating = leftInfo.rating;
-    let rRating = rightInfo.rating;
+    let lRating = lInfo.rating;
+    let rRating = rInfo.rating;
     let lIcons = leftStar.children;
     let rIcons = rightStar.children;
     for (let i = 0; i < lIcons.length; i++) {
@@ -241,12 +227,12 @@ connection.onmessage = event => {
     }
     // calling the direct html and retreive the data from it
     //query statement
-    leftImg.style.backgroundImage= "url("+leftInfo.image_url+")";
-    rightImg.style.backgroundImage= "url("+rightInfo.image_url+")";
-    leftAddress.innerHTML= leftInfo.location.address1+", "+leftInfo.location.city+", "+leftInfo.location.state+", "+leftInfo.location.zip_code;
-    rightAddress.innerHTML= rightInfo.location.address1+", "+rightInfo.location.city+", "+rightInfo.location.state+", "+rightInfo.location.zip_code;
-    leftReviews.setAttribute('href', leftInfo.url);
-    rightReviews.setAttribute('href', rightInfo.url);
+    leftImg.style.backgroundImage= "url("+lInfo.image_url+")";
+    rightImg.style.backgroundImage= "url("+rInfo.image_url+")";
+    leftAddress.innerHTML= lInfo.location.address1+", "+lInfo.location.city+", "+lInfo.location.state+", "+lInfo.location.zip_code;
+    rightAddress.innerHTML= rInfo.location.address1+", "+rInfo.location.city+", "+rInfo.location.state+", "+rInfo.location.zip_code;
+    leftReviews.setAttribute('href', lInfo.url);
+    rightReviews.setAttribute('href', rInfo.url);
     rightRest.classList.add("hidden");
     leftRest.classList.add("winner");
   }
@@ -262,14 +248,15 @@ connection.onmessage = event => {
     console.log(lInfo.name);
     leftName.innerHTML= lInfo.name;
     rightName.innerHTML= rInfo.name;
+    // in case when the price value does not exist
     if (!lInfo.price){
-      leftPrice.innerHTML = "?";
+      leftPrice.innerHTML = "$$";
     }
     else{
       leftPrice.innerHTML = lInfo.price;
     }
     if (!rInfo.price){
-      rightPrice.innerHTML = "?";
+      rightPrice.innerHTML = "$$";
     }
     else{
       rightPrice.innerHTML = rInfo.price;
