@@ -1,6 +1,5 @@
 // client-side js, loaded by index.html
 // run by the browser each time the page is loaded
-
 const url = "wss://tinder-websocket-final.glitch.me";
 const connection = new WebSocket(url);
 
@@ -60,6 +59,31 @@ for(let i =0; i<10; i++){
 }
 clientLink.href = "https://tinder-websocket-final.glitch.me/client.html" + "?id=" + randNum;
 clientLink.textContent = "https://tinder-websocket-final.glitch.me/client.html" + "?id=" + randNum;
+
+
+function startNewGame(){
+  header.classList.add("hidden");
+  linkDiv.classList.add("hidden");
+  categoryDiv.classList.remove("hidden");
+}
+
+function sendNewMsg() {
+  let msg= [e.value, e2.value]
+  let msgObj = {
+    "type": "message",
+    "from": "host",
+    "msg": msg
+  }
+  connection.send(JSON.stringify(msgObj));
+  e.value = null;
+  e2.value=null;
+  
+  progressBar.classList.remove("hidden");
+  restSection.classList.remove("hidden");
+  round.classList.remove("hidden");
+  categoryDiv.classList.add("hidden");
+}
+
 
 e.addEventListener("input",() => {
   console.log("change");
@@ -324,27 +348,4 @@ setInterval(() => {
   connection.send(msg);
 }, 4000);
 */
-
-function startNewGame(){
-  header.classList.add("hidden");
-  linkDiv.classList.add("hidden");
-  categoryDiv.classList.remove("hidden");
-}
-
-function sendNewMsg() {
-  let msg= [e.value, e2.value]
-  let msgObj = {
-    "type": "message",
-    "from": "host",
-    "msg": msg
-  }
-  connection.send(JSON.stringify(msgObj));
-  e.value = null;
-  e2.value=null;
-  
-  progressBar.classList.remove("hidden");
-  restSection.classList.remove("hidden");
-  round.classList.remove("hidden");
-  categoryDiv.classList.add("hidden");
-}
 
