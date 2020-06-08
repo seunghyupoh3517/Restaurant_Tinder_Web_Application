@@ -21,6 +21,7 @@ submit.addEventListener("click", sendNewMsg);
 
 let header = document.getElementById("header");
 let linkDiv = document.getElementById("linkDiv");
+let clientLink = document.getElementById("link");
 
 let button1 = document.getElementById("leftLike");
 let button2 = document.getElementById("rightLike");
@@ -52,6 +53,13 @@ let rightStars = document.getElementById("rightStars");
 let leftRest =document.getElementById("restLeft");
 let rightRest =document.getElementById("restRight");
 let gameStatus = 1;
+
+let randNum = '';
+for(let i =0; i<10; i++){
+  randNum += Math.floor(Math.random() * 10);
+}
+clientLink.href = "https://tinder-websocket-final.glitch.me/client.html" + "?id=" + randNum;
+clientLink.textContent = "https://tinder-websocket-final.glitch.me/client.html" + "?id=" + randNum;
 
 e.addEventListener("input",() => {
   console.log("change");
@@ -116,8 +124,6 @@ e2_xhr.addEventListener("load", function() {
       let loc = document.getElementById("locationTerm");
       let opt = '';
       let responseObj = JSON.parse(e2_xhr.responseText);
-      console.log("opt : ", opt)
-      console.log("responseObj : ", responseObj);
       for (var i=0; i < responseObj.cities.length;i++){
         opt += '<option value="'+responseObj.cities[i]+'" />'; 
       }

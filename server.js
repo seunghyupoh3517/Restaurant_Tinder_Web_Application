@@ -22,36 +22,9 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + "/public/index.html");
 });
 
-// Location / Keyword autocomplete
-// ? Keyword autocomplete should be added
-let autoObj = {
-  categories : [],
-  cities : []
-};
-
-// autocomplete1 -> just to test
-//\app.get("/autocomplete", (req, res) =>{
-//  client.allCategories().then(response => {
-//    let resObj = (response.jsonBody.categories);
-//    resObj.forEach((item) => {
-//      if(item.parent_aliases == 'food' || item.parent_aliases == 'restaurants'){
-//        autoObj.categories.push(item.title);
-//      }
-//    });
-//  }).catch(e => {
-//    console.log(e);
-//  });
-//
-//  let file = fs.readFileSync('cities.json');
-//  let t = JSON.parse(file);
-//  autoObj.cities = t.cities;
-//  res.json(autoObj);
-//});
-
 app.get("/cities", function(req, res){
   let file = fs.readFileSync('cities.json');
   let t = JSON.parse(file);
-  console.log("file" , t)
   res.json(t);
 })
 
