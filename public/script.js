@@ -190,6 +190,8 @@ let addMessage = function(message) {
 
 // star treating 
 // the winner page calls the page 
+
+// all copy to the client.js
 connection.onmessage = event => {
   console.log(event.data);
   let msgObj = JSON.parse(event.data);
@@ -219,88 +221,109 @@ connection.onmessage = event => {
       rightPrice.innerHTML = rightInfo.price;
     }
     // star rating -> wo fontawesome within array, couldnt call it directly from the YELP FUSION
-    let leftRating = leftInfo.rating;
-    let rightRating = rightInfo.rating;
-    let leftIcons = leftStar.children;
-    let rightIcons = rightStar.children;
-    for (let i = 0; i < leftIcons.length; i++) {
-      if (i < Math.floor(leftRating)) {
-        leftIcons[i].className = "fas fa-star";
+    let lRating = leftInfo.rating;
+    let rRating = rightInfo.rating;
+    let lIcons = leftStar.children;
+    let rIcons = rightStar.children;
+    for (let i = 0; i < lIcons.length; i++) {
+      if (i < Math.floor(lRating)) {
+        lIcons[i].className = "fas fa-star";
       } else {
-        leftIcons[i].className = "far fa-star";
+        lIcons[i].className = "far fa-star";
       }
     }
-    for (let i = 0; i < rightIcons.length; i++) {
-      if (i < Math.floor(rightRating)) {
-        rightIcons[i].className = "fas fa-star";
+    for (let i = 0; i < rIcons.length; i++) {
+      if (i < Math.floor(rRating)) {
+        rIcons[i].className = "fas fa-star";
       } else {
-        rightIcons[i].className = "far fa-star";
+        rIcons[i].className = "far fa-star";
       }
     }
     // calling the direct html and retreive the data from it
+    //query statement
     leftImg.style.backgroundImage= "url("+leftInfo.image_url+")";
     rightImg.style.backgroundImage= "url("+rightInfo.image_url+")";
-    leftAddress.innerHTML= leftInfo.location.address1+
-          ", "+leftInfo.location.city+", "+leftInfo.location.state+", "+leftInfo.location.zip_code;
-    rightAddress.innerHTML= rightInfo.location.address1+
-          ", "+rightInfo.location.city+", "+rightInfo.location.state+", "+rightInfo.location.zip_code;
+    leftAddress.innerHTML= leftInfo.location.address1+", "+leftInfo.location.city+", "+leftInfo.location.state+", "+leftInfo.location.zip_code;
+    rightAddress.innerHTML= rightInfo.location.address1+", "+rightInfo.location.city+", "+rightInfo.location.state+", "+rightInfo.location.zip_code;
     leftReviews.setAttribute('href', leftInfo.url);
     rightReviews.setAttribute('href', rightInfo.url);
     rightRest.classList.add("hidden");
     leftRest.classList.add("winner");
   }
+  
   else if (msgObj.type == 'command')
   {
     gameStatus = 1;
     round.textContent = "Round " + msgObj.round;
     progressBar.textContent = "Please choose...";
-    let leftInfo = JSON.parse(msgObj.info[0]);
-    let rightInfo = JSON.parse(msgObj.info[1]);
-    console.log(leftInfo);
-    console.log(leftInfo.name);
-    leftName.innerHTML= leftInfo.name;
-    rightName.innerHTML= rightInfo.name;
-    if (!leftInfo.price){
+    let lInfo = JSON.parse(msgObj.info[0]);
+    let rInfo = JSON.parse(msgObj.info[1]);
+    console.log(lInfo);
+    console.log(lInfo.name);
+    leftName.innerHTML= lInfo.name;
+    rightName.innerHTML= rInfo.name;
+    if (!lInfo.price){
       leftPrice.innerHTML = "?";
     }
     else{
-      leftPrice.innerHTML = leftInfo.price;
+      leftPrice.innerHTML = lInfo.price;
     }
-    if (!rightInfo.price){
+    if (!rInfo.price){
       rightPrice.innerHTML = "?";
     }
     else{
-      rightPrice.innerHTML = rightInfo.price;
+      rightPrice.innerHTML = rInfo.price;
     }
     
-    let leftRating = leftInfo.rating;
-    let rightRating = rightInfo.rating;
-    let leftIcons = leftStar.children;
-    let rightIcons = rightStar.children;
-    for (let i = 0; i < leftIcons.length; i++) {
-      if (i < Math.floor(leftRating)) {
-        leftIcons[i].className = "fas fa-star";
+    let lRating = lInfo.rating;
+    let rRating = rInfo.rating;
+    let lIcons = leftStar.children;
+    let rIcons = rightStar.children;
+    for (let i = 0; i < lIcons.length; i++) {
+      if (i < Math.floor(lRating)) {
+        lIcons[i].className = "fas fa-star";
       } else {
-        leftIcons[i].className = "far fa-star";
+        lIcons[i].className = "far fa-star";
       }
     }
-    for (let i = 0; i < rightIcons.length; i++) {
-      if (i < Math.floor(rightRating)) {
-        rightIcons[i].className = "fas fa-star";
+    for (let i = 0; i < rIcons.length; i++) {
+      if (i < Math.floor(rRating)) {
+        rIcons[i].className = "fas fa-star";
       } else {
-        rightIcons[i].className = "far fa-star";
+        rIcons[i].className = "far fa-star";
       }
     }
-    leftImg.style.backgroundImage= "url("+leftInfo.image_url+")";
-    rightImg.style.backgroundImage= "url("+rightInfo.image_url+")";
-    leftAddress.innerHTML= leftInfo.location.address1+
-          ", "+leftInfo.location.city+", "+leftInfo.location.state+", "+leftInfo.location.zip_code;
-    rightAddress.innerHTML= rightInfo.location.address1+
-          ", "+rightInfo.location.city+", "+rightInfo.location.state+", "+rightInfo.location.zip_code;
-    leftReviews.setAttribute('href', leftInfo.url);
-    rightReviews.setAttribute('href', rightInfo.url);    
+    //query statement
+    //target href using the ankor
+    leftImg.style.backgroundImage= "url("+lInfo.image_url+")";
+    rightImg.style.backgroundImage= "url("+rInfo.image_url+")";
+    leftAddress.innerHTML= lInfo.location.address1+", "+lInfo.location.city+", "+lInfo.location.state+", "+lInfo.location.zip_code;
+    rightAddress.innerHTML= rInfo.location.address1+", "+rInfo.location.city+", "+rInfo.location.state+", "+rInfo.location.zip_code;
+    leftReviews.setAttribute('href', lInfo.url);
+    rightReviews.setAttribute('href', rInfo.url);    
   }
   else {
     addMessage(msgObj.type);
   }
 };
+/*
+// ? button1, button2 event listener need to be improved (cmdObj)
+button1.addEventListener("click", () => {
+  progressBar.textContent = "Waiting...";
+  let cmdObj = {
+    "type": "command",
+    "selection": 0
+  }
+  connection.send(JSON.stringify(cmdObj));
+});
+
+button2.addEventListener("click", () => {
+  progressBar.textContent = "Waiting...";
+  let cmdObj = {
+    "type": "command",
+    "selection": 1
+  }
+  connection.send(JSON.stringify(cmdObj));
+});
+*/
+// --------------------------------------------------------------
