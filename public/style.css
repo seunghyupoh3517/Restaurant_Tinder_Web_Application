@@ -184,10 +184,14 @@ header{
 
 
 .hidden{
+  opacity: 0;
+  transition: opacity 1500ms;
   display: none;
 }
 
 #categoryDiv{
+  display: '';
+  opacity: 1;
   text-align: center;
 }
 

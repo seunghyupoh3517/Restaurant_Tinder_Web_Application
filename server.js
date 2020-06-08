@@ -82,12 +82,6 @@ wss.on('connection', (ws) => {
   round = 1;
   numTie = 0;
   
-  // ?--
-  // const searchRequest = {
-  //  term:'',
-  //  location: 'Davis, CA'
-  //};
-  // ?--
   
   ws.on('message', (message) => {
     //console.log(message)
@@ -205,14 +199,6 @@ wss.on('connection', (ws) => {
           console.log(e);
         });
     }
-          //if (restaurantIndex < restaurantList.length - 1)
-          //  restaurantIndex += 2;  
-          //const searchRequest = {
-          //  term:'Frozen Yogurt',
-          //  location: 'Davis, ca'
-          //};
-          //let firstResult = 0;
-          //let prettyJson = 0;
   });
   
   ws.on('close', ()=>{

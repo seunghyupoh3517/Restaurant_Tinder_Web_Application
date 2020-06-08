@@ -3,12 +3,6 @@
 const url = "wss://tinder-websocket-final.glitch.me";
 const connection = new WebSocket(url);
 
-/*
-let e = document.getElementById("newMsg");
-e.addEventListener("change", sendNewMsg);
-*/
-
-
 let e = document.getElementById("newMsg");
 let e2 = document.getElementById("newMsg2");
 
@@ -53,6 +47,7 @@ let leftRest =document.getElementById("restLeft");
 let rightRest =document.getElementById("restRight");
 let gameStatus = 1;
 
+//adds random number to the client url
 let randNum = '';
 for(let i =0; i<10; i++){
   randNum += Math.floor(Math.random() * 10);
@@ -61,6 +56,7 @@ clientLink.href = "https://tinder-websocket-final.glitch.me/client.html" + "?id=
 clientLink.textContent = "https://tinder-websocket-final.glitch.me/client.html" + "?id=" + randNum;
 
 
+//css animation when Starting new game.
 function startNewGame(){
   header.classList.add("hidden");
   linkDiv.classList.add("hidden");
@@ -102,19 +98,6 @@ e.addEventListener("input",() => {
   xhr.open("POST", "/autocomplete", true);
   //xhr.open("GET","/autocomplete");
   xhr.setRequestHeader("Content-Type", "application/json; chaset=UTF-8");
-/*
-  function sendNewMsg() {
-  let msgObj = {
-    "type": "message",
-    "from": "host",
-    "msg": [inputKeywords.value, inputLocation.value]
-  }
-  console.log("keywords and location msg sent : ", msgObj)
-  connection.send(JSON.stringify(msgObj));
-  inputKeywords.value = null;
-  inputLocation.value = null;
-}
-*/
   // callback function executed when the HTTP response comes back
   xhr.onloadend = function(event) {    
     let ourData = JSON.parse(xhr.responseText);
@@ -140,6 +123,8 @@ e.addEventListener("input",() => {
   
 });
 
+
+//autocomplete for Location input
 const e2_xhr = new XMLHttpRequest();
 e2_xhr.open("GET", "/cities", true);
 
@@ -160,25 +145,6 @@ e2_xhr.addEventListener("load", function() {
 // Actually send request to server
 e2_xhr.send();
 
-/*
-// Input autocomplete option lists
-let locations = [];
-let keywords = [];
-
-// creates option tags for each items in the list, adds them under the datalist tags
-function addSearchOptions(list, datalist){
-  list.forEach((elem) => {
-    let option = document.createElement("OPTION");
-    option.setAttribute("value", elem);
-    datalist.appendChild(option);
-  });
-}
-
-let locationDatalist = document.getElementById("location");
-let keywordDatalist = document.getElementById("keyword");
-let inputLocation = document.getElementById("locationText");
-let inputKeywords = document.getElementById("keywordText");
-*/
 
 button1.addEventListener("click", () => {
   progressBar.textContent = "Waiting...";
@@ -339,13 +305,3 @@ connection.onmessage = event => {
     addMessage(msgObj.type);
   }
 };
-
-
-/* 
-setInterval(() => {
-  let msg = "hearbeat";
-  addMessage("host:" + msg)
-  connection.send(msg);
-}, 4000);
-*/
-
