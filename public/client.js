@@ -143,15 +143,13 @@ let addMessage = function(message) {
   pTag.appendChild(document.createTextNode(message));
   document.getElementById("messages").appendChild(pTag);
 };
+//connection.onopen = () => {
+//  connection.send(JSON.stringify({"type": "helloClient"}));
+//};
 
-
-connection.onopen = () => {
-  connection.send(JSON.stringify({"type": "helloClient"}));
-};
-
-connection.onerror = error => {
-  console.log(`WebSocket error: ${error}`);
-};
+//connection.onerror = error => {
+//  console.log(`WebSocket error: ${error}`);
+//};
 
 
 connection.onmessage = event => {

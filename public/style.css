@@ -114,16 +114,6 @@ input {
   display: none;
 }
 
-.changeState{
-  transition: opacity 1s;
-  visibility: hidden;
-  opacity: 0;
-}
-.fadeIn{
-  visibility: visible;
-  opacity: 1;
-}
-
 #categoryDiv{
   text-align: center;
 }

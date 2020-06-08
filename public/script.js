@@ -63,9 +63,6 @@ function startNewGame(){
   header.classList.add("hidden");
   linkDiv.classList.add("hidden");
   categoryDiv.classList.remove("hidden");
-  categoryDiv.classList.add("changeState");
-  categoryDiv.classList.toggle("fadeIn");
-  
 }
 
 function sendNewMsg() {
@@ -221,7 +218,7 @@ connection.onmessage = event => {
     else{
       rightPrice.innerHTML = rightInfo.price;
     }
-    
+    // star rating -> wo fontawesome within array, couldnt call it directly from the YELP FUSION
     let leftRating = leftInfo.rating;
     let rightRating = rightInfo.rating;
     let leftIcons = leftStar.children;
@@ -240,8 +237,7 @@ connection.onmessage = event => {
         rightIcons[i].className = "far fa-star";
       }
     }
-
-    
+    // calling the direct html and retreive the data from it
     leftImg.style.backgroundImage= "url("+leftInfo.image_url+")";
     rightImg.style.backgroundImage= "url("+rightInfo.image_url+")";
     leftAddress.innerHTML= leftInfo.location.address1+
