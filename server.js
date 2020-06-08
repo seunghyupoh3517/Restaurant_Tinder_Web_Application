@@ -48,6 +48,12 @@ let autoObj = {
 //  res.json(autoObj);
 //});
 
+app.get("/cities", function(req, res){
+  let file = fs.readFileSync('cities.json');
+  let t = JSON.parse(file);
+  res.json(file);
+})
+
 // autocomplete2 -> just to test, differentiate from the app.get
 app.post("/autocomplete", function(request, res){
   let searchBtn = {text: request.body.value};

@@ -108,6 +108,8 @@ e.addEventListener("input",() => {
   
 });
 
+e2.addEvent
+
 /*
 // Input autocomplete option lists
 let locations = [];
