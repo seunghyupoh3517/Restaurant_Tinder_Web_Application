@@ -1,7 +1,7 @@
 // client-side js, loaded by index.html
 // run by the browser each time the page is loaded
 
-const url = "wss://collaboration-tinder-second.glitch.me";
+const url = "wss://tinder-websocket-final.glitch.me";
 const connection = new WebSocket(url);
 
 /*

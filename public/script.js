@@ -1,7 +1,7 @@
 // client-side js, loaded by index.html
 // run by the browser each time the page is loaded
 
-const url = "wss://collaboration-tinder-second.glitch.me";
+const url = "wss://tinder-websocket-final.glitch.me";
 const connection = new WebSocket(url);
 
 /*
@@ -108,7 +108,23 @@ e.addEventListener("input",() => {
   
 });
 
-e2.addEvent
+const e2_xhr = new XMLHttpRequest();
+e2_xhr.open("GET", "/cities", true);
+
+e2_xhr.addEventListener("load", function() {
+    if (e2_xhr.status == 200) {
+      let loc = document.getElementById("locationTerm");
+      let opt = '';
+      let responseObj = JSON.parse(e2_xhr.responseText);
+      for (var i=0; i < responseObj.cities.length;i++){
+        opt += '<option value="'+responseObj.cities[i].title+'" />'; 
+      }
+    } else {
+      console.log(e2_xhr.responseText);
+    }
+});
+// Actually send request to server
+e2_xhr.send();
 
 /*
 // Input autocomplete option lists
