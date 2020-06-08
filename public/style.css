@@ -114,8 +114,13 @@ input {
   display: none;
 }
 
+.changeState{
+  transition: opacity 1s;
+  visibility: hidden;
+  opacity: 0;
+}
 .fadeIn{
-  transition: all 2s linear;
+  visibility: visible;
   opacity: 1;
 }
 

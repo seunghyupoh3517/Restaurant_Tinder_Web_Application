@@ -3,6 +3,7 @@
 const url = "wss://tinder-websocket-final.glitch.me";
 const connection = new WebSocket(url);
 
+// set up the event listener and all the dynamic variables from DOM
 let e = document.getElementById("newMsg");
 let e2 = document.getElementById("newMsg2");
 
@@ -45,6 +46,7 @@ let rightStar = document.getElementById("rightStars");
 
 let leftRest =document.getElementById("restLeft");
 let rightRest =document.getElementById("restRight");
+// to keep it up with the round's selection 
 let gameStatus = 1;
 
 //adds random number to the client url
@@ -61,7 +63,8 @@ function startNewGame(){
   header.classList.add("hidden");
   linkDiv.classList.add("hidden");
   categoryDiv.classList.remove("hidden");
-  categoryDiv.classList.add("fadeIn");
+  categoryDiv.classList.add("changeState");
+  categoryDiv.classList.toggle("fadeIn");
   
 }
 
@@ -173,21 +176,20 @@ button2.addEventListener("click", () => {
   
 });
 
-
-
+// create the paragraph tag in dom to display the winnder and send the message
 let addMessage = function(message) {
   const pTag = document.createElement("p");
   pTag.appendChild(document.createTextNode(message));
   document.getElementById("messages").appendChild(pTag);
 };
 
-connection.onopen = () => {
-  connection.send(JSON.stringify({"type":"helloHost"}));
-};
+//connection.onopen = () => {
+//  connection.send(JSON.stringify({"type":"helloHost"}));
+//};
 
-connection.onerror = error => {
-  console.log(`WebSocket error: ${error}`);
-};
+//connection.onerror = error => {
+//  console.log(`WebSocket error: ${error}`);
+//};
 
 // star treating 
 // the winner page calls the page 
@@ -293,7 +295,6 @@ connection.onmessage = event => {
         rightIcons[i].className = "far fa-star";
       }
     }
-
     leftImg.style.backgroundImage= "url("+leftInfo.image_url+")";
     rightImg.style.backgroundImage= "url("+rightInfo.image_url+")";
     leftAddress.innerHTML= leftInfo.location.address1+
