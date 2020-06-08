@@ -9,8 +9,39 @@ let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 */
 
+
+function printMsg() {
+  let input = document.getElementById("yelpSearch");
+  console.log(input.value);
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/autocomplete");
+  xhr.setRequestHeader('Content-Type', 'text/html');
+  xhr.addEventListener("load", function() {
+    if (xhr.status == 200) {
+      console.log(xhr.responseText);
+    } else {
+      console.log(xhr.responseText);
+    }
+  });
+  // send off xhr to server
+  // xhr.send(input.value);
+  xhr.send('hello world');
+}
+
+
+//function sendNewMsg() {
+//  let e = document.getElementById("newMsg");
+//  let msgObj = {
+//    "type": "message",
+//    "from": "a client",
+//    "msg": "e.value"
+//  }
+//  connection.send(JSON.stringify(msgObj));
+//  e.value = null;
+//}
+
 let e = document.getElementById("newMsg");
-e.addEventListener("change", sendNewMsg);
+//e.addEventListener("change", sendNewMsg);
 
 let button1 = document.getElementById("leftLike");
 let button2 = document.getElementById("rightLike");
@@ -129,7 +160,7 @@ connection.onmessage = event => {
   if (msgObj.type == "message") {
     addMessage(msgObj.from+": "+msgObj.msg);
   }
-  else if(msgObj.type == "gameResult"){
+  else if(msgObj.type == "Result"){
     gameStatus= 0;
     round.classList.add("hidden");
     progressBar.textContent = "We have a winner!!!";
@@ -209,7 +240,7 @@ connection.onmessage = event => {
     rightReview.href = right.url;
     */
     gameStatus = 1;
-    round.textContent = "Round " + msgObj.roundNum;
+    round.textContent = "Round " + msgObj.round;
     progressBar.textContent = "Please choose...";
     round.classList.remove("hidden");
     restSection.classList.remove("hidden");
@@ -267,34 +298,3 @@ connection.onmessage = event => {
   }
 };
 
-
-
-function printMsg() {
-  let input = document.getElementById("yelpSearch");
-  console.log(input.value);
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "/autocomplete");
-  xhr.setRequestHeader('Content-Type', 'text/html');
-  xhr.addEventListener("load", function() {
-    if (xhr.status == 200) {
-      console.log(xhr.responseText);
-    } else {
-      console.log(xhr.responseText);
-    }
-  });
-  // send off xhr to server
-  // xhr.send(input.value);
-  xhr.send('hello world');
-}
-
-
-function sendNewMsg() {
-  let e = document.getElementById("newMsg");
-  let msgObj = {
-    "type": "message",
-    "from": "a client",
-    "msg": "e.value"
-  }
-  connection.send(JSON.stringify(msgObj));
-  e.value = null;
-}
