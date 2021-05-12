@@ -6,21 +6,14 @@
 An example using Websockets to allow the Server to broadcast messages to a group of clients.
 
 ## Things to notice
-
-"Broadcasting" here is just sending the same message to every client that is connected 
-(you can see this in server.js)
-
-There are two html files (just like our postcard app).  The user who starts the app at index.hmtl is the 
-first one to join the chat, and later ones should start at client.html. 
-
-Messages are sent to the Server from the browser code - not as HTTP requests! - 
-by calling "connection.send"
+- "Broadcasting" here is just sending the same message to every client that is connected (you can see this in server.js)
+- There are two html files: The user who starts the app at index.hmtl is the first one to join the chat, and later ones should start at client.html. 
+- Messages are sent to the Server from the browser code - not as HTTP requests, by calling "connection.send"
+- How do clients/players get a restaurant like picture, rating, price etc? 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Doesn't have to wait for every small round - can speed to 
-
 Technical spec
 - express
 - Web socket
@@ -28,8 +21,7 @@ Technical spec
 - Yelp API DB 
 - Axios
 
-
-how do clients/players get a restaurant like picture, rating, price etc ? 
+ 
 
 From database where you input the result of the return from YELP search API. , you can just send all the clients a JSON object 
 
@@ -44,11 +36,6 @@ How can you keep track of voting counts for the restaurants then? 
 you don't really need to keep the votes right, you just need to know which one wins 
 
 
- 
- 
- 
- 
- 
  1. Home Page (for the Host)
 - Start new game (button)
 -> Link to share (+random number()) / Search Control
