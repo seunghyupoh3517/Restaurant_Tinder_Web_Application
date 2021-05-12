@@ -9,7 +9,8 @@ An example using Websockets to allow the Server to broadcast messages to a group
 - "Broadcasting" here is just sending the same message to every client that is connected (you can see this in server.js)
 - There are two html files: The user who starts the app at index.hmtl is the first one to join the chat, and later ones should start at client.html. 
 - Messages are sent to the Server from the browser code - not as HTTP requests, by calling "connection.send"
-- How do clients/players get a restaurant like picture, rating, price etc? 
+
+#### How do clients/players get a restaurant like picture, rating, price etc? 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
