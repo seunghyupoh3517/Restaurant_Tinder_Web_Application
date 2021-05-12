@@ -10,15 +10,15 @@
 - Messages are sent to the Server from the browser code - not as HTTP requests, by calling "connection.send" (Websockets to allow server to broadcast messages to a group of clients)
 
 #### How do clients/players get a restaurant like picture, rating, price etc? 
-##### From database where you input the result of the return from YELP search API. You can just send all the clients a JSON object. We send list of restaurants to clients in beginning of game, so every player has same copy - send them as game goes along
+From database where you input the result of the return from YELP search API. You can just send all the clients a JSON object. We send list of restaurants to clients in beginning of game, so every player has same copy - send them as game goes along
 
 #### Wouldn’t it be faster to send all the restaurants to the client and save them all in the db and additional row for voteCount? Updating voteCount per round and goes on?
-##### I only sent the active restaurant for voting to clients, like a pair. Don't need to store all the data on client side.
+I only sent the active restaurant for voting to clients, like a pair. Don't need to store all the data on client side.
 
 #### How can you keep track of voting counts for the restaurants then?
-##### You don't really need to keep the votes right, you just need to know which one wins. Winning restaurant will be kept in the loop.
+You don't really need to keep the votes right, you just need to know which one wins. Winning restaurant will be kept in the loop.
 
-### Technical spec
+#### Technical spec
 - Javascript
 - Node.js (express.js)
 - Web socket 
