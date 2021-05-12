@@ -1,3 +1,5 @@
+### Imported from https://glitch.com/~tinder-websocket-final Project created by Seunghyup Alex Oh, Jinwoo Jeong
+
 # Glitch Websocket chat app
 
 An example using Websockets to allow the Server to broadcast messages to a group of clients.
@@ -13,26 +15,10 @@ first one to join the chat, and later ones should start at client.html.
 Messages are sent to the Server from the browser code - not as HTTP requests! - 
 by calling "connection.send"
 
-## Authors
-
-Mainly Michael Tianchen Sun, with a little messing about by Nina Amenta
-
-## Made on [Glitch](https://glitch.com/)
-
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
-
-( ᵔ ᴥ ᵔ )
-
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Amenta pointed out that the yelp API doesn't give restaurant descriptions in the search response, as such I updated the mobile views to show the address instead of a description. I thought about including hours or if the restaurant is currently open, but those both require a separate API call so I left them off. Please take a look at the new mobile views and implement that version in your projects.  
-
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Doesn't have to wait for every small round - can speed to 
-
 
 Technical spec
 - express
