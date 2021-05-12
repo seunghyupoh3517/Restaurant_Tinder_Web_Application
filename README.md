@@ -19,9 +19,9 @@
 ##### You don't really need to keep the votes right, you just need to know which one wins. Winning restaurant will be kept in the loop.
 
 ### Technical spec
-- express
+- Javascript
+- Node.js (express.js)
 - Web socket 
-- DB
 - Yelp API DB 
 - Axios
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
