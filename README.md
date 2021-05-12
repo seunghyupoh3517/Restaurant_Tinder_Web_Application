@@ -5,7 +5,9 @@
 ### Restuaurant Tinder is a web application that helps decide on a restaurant for a group of clients based on voting system. Host can initiate the game and choose the cuisine, location for the restaurant candidates.
 
 <img width="1158" alt="Screen Shot 2021-05-12 at 11 41 19 AM" src="https://user-images.githubusercontent.com/29718034/118027620-fa01b380-b316-11eb-842d-72dd914ae411.png">
-![Uploading Screen Shot 2021-05-12 at 11.41.54 AM.png…]()
+
+<img width="945" alt="Screen Shot 2021-05-12 at 11 42 33 AM" src="https://user-images.githubusercontent.com/29718034/118027764-26b5cb00-b317-11eb-8bf4-e2111cbc21e0.png">
+
 
 ## Things to notice
 - "Broadcasting" here is just sending the same message to every client that is connected (you can see this in server.js)
