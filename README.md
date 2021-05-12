@@ -41,12 +41,11 @@
 
 4. Player Page (for the host, players)
 - display restaurant & info in random order from the server database
-Q: What does it mean to display ‘number of times it has been chosen’ in the player page window?
-- Swiper (swipe left for Yes, swipe right for no)
--> swipe right does nothing
--> swipe left updates the swipeCount val for each restaurant in database
--> at the end of every round of total five rounds unless there is absolute tie before the fifth round, check the swipe Count 
--> 
+- Initial Plan: Swiper (swipe left for Yes, swipe right for no)
+	- swipe right does nothing
+	- swipe left updates the swipeCount val for each restaurant in database
+	- at the end of every round of total five rounds unless there is absolute tie before the fifth round, check the swipe Count 
+- Decide to player to just click on the 'like' buttion, heart shaped button, to vote
 // Add variable conditions for the case of tie occurrences and especially, when it occurs before the fifth round
 
 if swipeCount == #players
