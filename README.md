@@ -1,14 +1,15 @@
 ### Imported from https://glitch.com/~tinder-websocket-final 
 ### Project created by Seunghyup Alex Oh, Jinwoo Jeong
 
-# Glitch Websocket chat app
+# Restaurant Tinder Web Application
+### Restuaurant Tinder is a web application that helps decide on a restaurant for a group of clients based on voting system. Host can initiate the game and choose the cuisine, location for the restaurant candidates.
 
 An example using Websockets to allow the Server to broadcast messages to a group of clients.
 
 ## Things to notice
 - "Broadcasting" here is just sending the same message to every client that is connected (you can see this in server.js)
 - There are two html files: The user who starts the app at index.hmtl is the first one to join the chat, and later ones should start at client.html. 
-- Messages are sent to the Server from the browser code - not as HTTP requests, by calling "connection.send"
+- Messages are sent to the Server from the browser code - not as HTTP requests, by calling "connection.send" (Websockets to allow server to broadcast messages to a group of clients)
 
 #### How do clients/players get a restaurant like picture, rating, price etc? 
 ##### From database where you input the result of the return from YELP search API. You can just send all the clients a JSON object. We send list of restaurants to clients in beginning of game, so every player has same copy - send them as game goes along
@@ -21,7 +22,7 @@ An example using Websockets to allow the Server to broadcast messages to a group
 
 ### Technical spec
 - express
-- Web socket
+- Web socket 
 - DB
 - Yelp API DB 
 - Axios
