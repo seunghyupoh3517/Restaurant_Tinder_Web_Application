@@ -4,8 +4,6 @@
 # Restaurant Tinder Web Application
 ### Restuaurant Tinder is a web application that helps decide on a restaurant for a group of clients based on voting system. Host can initiate the game and choose the cuisine, location for the restaurant candidates.
 
-An example using Websockets to allow the Server to broadcast messages to a group of clients.
-
 ## Things to notice
 - "Broadcasting" here is just sending the same message to every client that is connected (you can see this in server.js)
 - There are two html files: The user who starts the app at index.hmtl is the first one to join the chat, and later ones should start at client.html. 
