@@ -11,31 +11,21 @@ An example using Websockets to allow the Server to broadcast messages to a group
 - Messages are sent to the Server from the browser code - not as HTTP requests, by calling "connection.send"
 
 #### How do clients/players get a restaurant like picture, rating, price etc? 
+##### From database where you input the result of the return from YELP search API. You can just send all the clients a JSON object. We send list of restaurants to clients in beginning of game, so every player has same copy - send them as game goes along
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#### Wouldn’t it be faster to send all the restaurants to the client and save them all in the db and additional row for voteCount? Updating voteCount per round and goes on?
+##### I only sent the active restaurant for voting to clients, like a pair. Don't need to store all the data on client side.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Technical spec
+### How can you keep track of voting counts for the restaurants then?
+#### You don't really need to keep the votes right, you just need to know which one wins. Winning restaurant will be kept in the loop.
+
+### Technical spec
 - express
 - Web socket
 - DB
 - Yelp API DB 
 - Axios
-
- 
-
-From database where you input the result of the return from YELP search API. , you can just send all the clients a JSON object 
-
-ok, so we send list of restaurants to clients in beginning of game, so every player has same copy - send them as game goes along
-
-Wouldn’t it be faster to send all the restaurants to the client and save them all in the db and additional row for voteCount? 
-Updating voteCount per round and goes on? 
-
-I only sent the restaurant active for voting to clients, Like a pair. 
-
-How can you keep track of voting counts for the restaurants then? 
-you don't really need to keep the votes right, you just need to know which one wins 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
  1. Home Page (for the Host)
 - Start new game (button)
